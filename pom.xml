@@ -15,8 +15,12 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <name>Maven Portlet Archetype</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
+
+  <modules>
+    <module>basic-reflect</module>
+    <module>basic-thread</module>
+  </modules>
 
   <properties>
     <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
