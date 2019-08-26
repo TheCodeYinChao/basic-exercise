@@ -21,6 +21,7 @@
     <module>basic-reflect</module>
     <module>basic-thread</module>
     <module>basic-design</module>
+      <module>basic-collection</module>
   </modules>
 
   <properties>

@@ -12,7 +12,7 @@ public class MainTest {
      /*   Class<InvokerClass> aClass = InvokerClass.class;
 
         InvokerClass aClass1 = aClass.newInstance();
-        Map<String,String >params = new HashMap();
+        map<String,String >params = new HashMap();
 
         params.put("a","ds");
         params.put("b","ds");

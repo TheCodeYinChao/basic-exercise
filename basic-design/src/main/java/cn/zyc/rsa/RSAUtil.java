@@ -460,7 +460,7 @@ public class RSAUtil {
 
 	public static void main(String[] args) throws Exception {
 		// 生成公私
-		/*Map<String, Object> map = genKeyPair();
+		/*map<String, Object> map = genKeyPair();
 		map.forEach((key,value) -> {
 			System.out.println( key + value);
 		});*/
