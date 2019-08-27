@@ -1,10 +1,11 @@
 # maven ignore
-target/
+*target/
 *.jar
 *.war
 *.zip
 *.tar
 *.tar.gz
+*README.md
 
 # eclipse ignore
 .settings/
@@ -25,6 +26,8 @@ logs/
 *.diff
 *.patch
 *.tmp
+*mvnw.cmd
+*mvnw
 
 # system ignore
 .DS_Store
