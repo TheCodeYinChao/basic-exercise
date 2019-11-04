@@ -22,6 +22,7 @@
     <module>basic-thread</module>
     <module>basic-design</module>
       <module>basic-collection</module>
+      <module>basic-jvm</module>
   </modules>
 
   <properties>
