@@ -6,8 +6,21 @@ import java.util.concurrent.*;
 
 public class PoolDemo {
 
+
+    /**
+     * 关于线程池中如何复用 已经各参数之间的关系
+     * 精髓连接地址  https://blog.csdn.net/anhenzhufeng/article/details/88870374
+     *
+     * 线程池博大精深--对于用好多线程有很多重要的启迪作用
+     *
+     * 同时找到一个有关jdk源码探索的方法
+     * @param args
+     */
+
     public static void main(String[] args) {
        ExecutorService executorService = Executors.newScheduledThreadPool(1);
+
+        Executors.newCachedThreadPool();
         Executors.newCachedThreadPool();
         executorService.submit(new Runnable() {
             @Override
@@ -56,6 +69,17 @@ public class PoolDemo {
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
             map.put("1",r);
+        }
+    }
+
+   static class test{
+        public static void main(String[] args) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println(1);
+                    }
+                }).start();
         }
     }
 }
