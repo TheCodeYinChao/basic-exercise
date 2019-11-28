@@ -1,25 +1,17 @@
 package cn.zyc.commandpattern.bak;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * @author zyc
- * @date 2019/2/26 16:20
- * @Description:
+ * Created by Admin on 2019/9/8.
+ * 命令执行者
  */
 public class Invoker {
-    private List<Cammand> cm = new ArrayList<>();
+    private Commod commod;
 
-    public void receviceTask(Cammand c){
-        cm.add(c);
+    public void setCommod(Commod commod) {
+        this.commod = commod;
     }
 
-    public void excute(){
-        for(Cammand c:cm){
-            c.execute();
-        }
-        cm.clear();
+    public void execute(){
+        commod.execute();
     }
-
 }

@@ -1,5 +1,6 @@
 package com.zyc.threadpool;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.*;
@@ -36,6 +37,15 @@ public class PoolDemo {
         });
 
         executorService.shutdown();
+
+        //线程异常处理
+        ExecutorService threadPool = Executors.newFixedThreadPool(1);
+        threadPool.submit(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
     }
 
     public void test(){
