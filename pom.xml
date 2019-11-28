@@ -23,6 +23,7 @@
     <module>basic-design</module>
       <module>basic-collection</module>
       <module>basic-jvm</module>
+      <module>basic-arithmetic</module>
   </modules>
 
   <properties>
