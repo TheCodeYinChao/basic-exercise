@@ -50,14 +50,29 @@ public class ReentrantLockDemo {
 
         condition.signal();//唤醒
 
-//      CountDownLatch  countDownLatch = new CountDownLatch(1);
-//
-//      Semaphore semaphore = new Semaphore(6);
-//
-//      CyclicBarrier cyclicBarrier = new CyclicBarrier(4);
-//
-//      ReentrantReadWriteLock  rw = new ReentrantReadWriteLock();
-//      ReentrantReadWriteLock.ReadLock readLock = rw.readLock();
-//      ReentrantReadWriteLock.WriteLock writeLock = rw.writeLock();
+
+        ReentrantReadWriteLock  rw = new ReentrantReadWriteLock();
+        ReentrantReadWriteLock.ReadLock readLock = rw.readLock();
+
+        readLock.lock();
+        readLock.unlock();
+        ReentrantReadWriteLock.WriteLock writeLock = rw.writeLock();
+        writeLock.lock();
+        writeLock.unlock();
+
+        CountDownLatch  countDownLatch = new CountDownLatch(1);
+
+        countDownLatch.await();
+        countDownLatch.countDown();
+
+            Semaphore semaphore = new Semaphore(6);
+
+            semaphore.acquire();
+            semaphore.release();
+
+
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(4);
+        cyclicBarrier.await();
+        cyclicBarrier.reset();
     }
 }
