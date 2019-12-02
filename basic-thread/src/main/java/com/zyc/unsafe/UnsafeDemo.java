@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
-public class UnsafeDemo {
+class UnsafeDemo {
     public static void main(String[] args)throws Exception {
         //1.最简单的使用方式是基于反射获取Unsafe实例
         Field f = Unsafe.class.getDeclaredField("theUnsafe");
