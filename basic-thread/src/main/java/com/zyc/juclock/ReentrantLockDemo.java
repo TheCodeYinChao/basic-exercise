@@ -50,8 +50,8 @@ public class ReentrantLockDemo {
 
         condition.signal();//唤醒
 
-
-        ReentrantReadWriteLock rw = new ReentrantReadWriteLock();
+//       读写锁 https://www.jianshu.com/p/cd485e16456e
+        ReentrantReadWriteLock  rw = new ReentrantReadWriteLock();
         ReentrantReadWriteLock.ReadLock readLock = rw.readLock();
 
         readLock.lock();

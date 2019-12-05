@@ -2,8 +2,8 @@ package com.zyc.threadinterrupt;
 
 public class ThreadDemo {
     public static void main(String[] args) {
-        Thread.interrupted();//作用于当前线程  是检测中断并清除中断状态
-
+        boolean interrupted = Thread.interrupted();//作用于当前线程  是检测中断并清除中断状态
+        System.out.println(interrupted);
 
         Thread thread = new Thread(new Runnable() {
             @Override
