@@ -12,12 +12,12 @@ import java.lang.reflect.Proxy;
  * Description: 基础代理类的  InvocationHandler Proxy
  */
 public class ProxyC implements InvocationHandler {
-    private  Object object;
+    private Object object;
 
-    public  Object newInstance(Object object){
+    public Object newInstance(Object object) {
         this.object = object;
         return Proxy.newProxyInstance(object.getClass().getClassLoader(),
-                                        object.getClass().getInterfaces(),
+                object.getClass().getInterfaces(),
                 this);
     }
 

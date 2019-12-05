@@ -7,18 +7,18 @@ package cn.zyc.skill.chained.builder.bak;
  */
 public class User {
     private String name;
-    private String  age;
+    private String age;
 
     public User(String name, String age) {
         this.name = name;
         this.age = age;
     }
 
-    static class  UserBulider{
+    static class UserBulider {
         private String name;
         private String age;
 
-        public static UserBulider instance(){
+        public static UserBulider instance() {
             return new UserBulider();
         }
 
@@ -40,8 +40,8 @@ public class User {
             return this;
         }
 
-        public User bulid(){
-            return new User(name,age);
+        public User bulid() {
+            return new User(name, age);
         }
     }
 

@@ -9,7 +9,9 @@ package cn.zyc.factory;
  */
 public class StaticFactory {
 
-    public static String getMsg(){
+    public static String getMsg() {
         return "静态工厂";
-    };
+    }
+
+    ;
 }

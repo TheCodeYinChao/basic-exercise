@@ -10,16 +10,18 @@ import java.lang.reflect.Proxy;
  * Created by Admin on 2019/5/12.
  */
 @Slf4j
-public class Invocation implements InvocationHandler{
+public class Invocation implements InvocationHandler {
     private Object object;
 
     public Invocation() {
 
     }
-    public Object setAgent( Object object){
+
+    public Object setAgent(Object object) {
         this.object = object;
-        return  Proxy.newProxyInstance(Invocation.class.getClassLoader(), object.getClass().getInterfaces(), this);
+        return Proxy.newProxyInstance(Invocation.class.getClassLoader(), object.getClass().getInterfaces(), this);
     }
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         log.info("执行前");

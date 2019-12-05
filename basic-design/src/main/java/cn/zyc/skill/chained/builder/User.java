@@ -41,11 +41,12 @@ public class User {
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public static UserBuilder builder(){
-        return  new UserBuilder();
+
+    public static UserBuilder builder() {
+        return new UserBuilder();
     }
 
-    static  class UserBuilder{
+    static class UserBuilder {
         private int age;
         private String name;
         private String sex;
@@ -65,8 +66,8 @@ public class User {
             return this;
         }
 
-        public User bulid(){
-            return new User(age,name,sex);
+        public User bulid() {
+            return new User(age, name, sex);
         }
 
         public int getAge() {

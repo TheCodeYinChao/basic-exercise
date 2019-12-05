@@ -9,6 +9,6 @@ package cn.zyc.factory.abstractfactory;
  */
 public class BmwSportCar extends BmwCar {
     void driver() {
-        System.out.println(this.getName()+"----BmwSportCar-----------------------");
+        System.out.println(this.getName() + "----BmwSportCar-----------------------");
     }
 }

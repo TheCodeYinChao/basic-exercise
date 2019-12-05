@@ -9,5 +9,6 @@ package cn.zyc.adapterpattem;
  */
 public interface ThreePinSoket {
     void chargeWithThreePin();
+
     int voltage();
 }

@@ -10,11 +10,12 @@ package cn.zyc.statepattem;
 public class Opening extends LiftState {
 
     void close() {
-    //状态修改
-            super.context.setLiftState(Context.closeingState);
-    //动作委托为CloseState来执行
-            super.context.getLiftState().close();
+        //状态修改
+        super.context.setLiftState(Context.closeingState);
+        //动作委托为CloseState来执行
+        super.context.getLiftState().close();
     }
+
     void open() {
         System.out.println("电梯门开启...");
     }

@@ -12,7 +12,7 @@ public class Context {
         this.strategy = strategy;
     }
 
-    public int execute(int a, int b){
-        return strategy.execute(a,b);
+    public int execute(int a, int b) {
+        return strategy.execute(a, b);
     }
 }

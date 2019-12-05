@@ -8,7 +8,7 @@ public class Test {
     public static void main(String[] args) {
         Invocation invocation = new Invocation();
         IUser user = new UserImpl();
-        IUser o = (IUser)invocation.setAgent(user);
+        IUser o = (IUser) invocation.setAgent(user);
         o.test();
     }
 }

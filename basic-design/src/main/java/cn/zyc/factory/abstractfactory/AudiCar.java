@@ -7,7 +7,7 @@ package cn.zyc.factory.abstractfactory;
  * Version ：1.0
  * Description: 抽象产品
  */
-public abstract  class AudiCar {
+public abstract class AudiCar {
     private String name;
 
     abstract void driver();

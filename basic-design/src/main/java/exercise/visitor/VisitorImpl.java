@@ -1,6 +1,6 @@
 package exercise.visitor;
 
-public class VisitorImpl implements Visitor{
+public class VisitorImpl implements Visitor {
     @Override
     public void viditor(Cpu cpu) {
         System.out.println("cpu");

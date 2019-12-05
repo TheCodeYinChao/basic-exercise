@@ -8,8 +8,7 @@ package cn.zyc.adapterpattem;
  * Description:
  */
 public class Main {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // 在中国，用两孔插座充电
         TwoPinSoketChina twoPinSoketChina = new TwoPinSoketChina();
         RongYao myRongYao = new RongYao();
@@ -30,14 +29,12 @@ public class Main {
 
     }
 
-    static void testTwoPin(TwoPinSoket twoPinSoket)
-    {
+    static void testTwoPin(TwoPinSoket twoPinSoket) {
         twoPinSoket.chargeWithTwoPin();
         System.out.println("电压是" + twoPinSoket.voltage() + "伏特\n");
     }
 
-    static void testThreePin(ThreePinSoket threePinSoket)
-    {
+    static void testThreePin(ThreePinSoket threePinSoket) {
         threePinSoket.chargeWithThreePin();
         System.out.println("电压是" + threePinSoket.voltage() + "伏特\n");
     }

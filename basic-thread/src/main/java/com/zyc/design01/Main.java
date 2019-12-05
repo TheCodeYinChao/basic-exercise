@@ -21,7 +21,7 @@ public class Main {
         log.info("execute other task ");
 
         String result = futureData.getResult();
-        log.info("aspc execute result [{}]",result);
+        log.info("aspc execute result [{}]", result);
 
     }
 }

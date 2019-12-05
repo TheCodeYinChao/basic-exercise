@@ -8,5 +8,5 @@ package cn.zyc.dynamic.proxy;
  * Description:
  */
 public interface Anamle {
-    void  run();
+    void run();
 }

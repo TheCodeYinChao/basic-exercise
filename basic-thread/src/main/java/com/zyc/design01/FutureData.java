@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by Admin on 2019/5/12.
  * 这里用到锁，会导致阻塞
  */
-public class FutureData implements Data{
+public class FutureData implements Data {
     private RealData realData;
 
     private static Lock lock = new ReentrantLock();
@@ -32,7 +32,7 @@ public class FutureData implements Data{
             condition.signal();
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
@@ -41,12 +41,12 @@ public class FutureData implements Data{
     public String getResult() {
         try {
             lock.lock();
-            if(!isComplement){
+            if (!isComplement) {
                 condition.await();//结果为组装好
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
         return realData.getResult();

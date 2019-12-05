@@ -5,7 +5,7 @@ package thorough.adaptive;
  */
 public class MainD {
     public static void main(String[] args) {
-        Parse u  = new Ad();
+        Parse u = new Ad();
         u.isPs();
     }
 }

@@ -5,6 +5,6 @@ package com.zyc.design03;
  */
 @lombok.Data
 public class Data {
-    private int id ;
+    private int id;
     private String name;
 }

@@ -7,7 +7,7 @@ package cn.zyc.factory.soeasyfactory;
  * Version ：1.0
  * Description:
  */
-public class MrbCar extends  Car {
+public class MrbCar extends Car {
     void drive() {
         System.out.println("[MRB ----------->]");
     }

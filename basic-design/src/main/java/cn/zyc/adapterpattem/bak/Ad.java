@@ -5,7 +5,7 @@ package cn.zyc.adapterpattem.bak;
  * @date 2019/2/26 11:32
  * @Description:
  */
-public class Ad  implements Man {
+public class Ad implements Man {
     private Car car;
 
     public Ad(Car car) {

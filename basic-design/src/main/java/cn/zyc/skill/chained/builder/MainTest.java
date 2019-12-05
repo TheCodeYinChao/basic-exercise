@@ -9,11 +9,11 @@ package cn.zyc.skill.chained.builder;
  */
 public class MainTest {
     public static void main(String[] args) {
-        User user =  User.builder()
-                    .setAge(1)
-                    .setName("nihao")
-                    .setSex("nihao")
-                    .bulid();
+        User user = User.builder()
+                .setAge(1)
+                .setName("nihao")
+                .setSex("nihao")
+                .bulid();
         System.out.println(user);
     }
 }

@@ -7,6 +7,8 @@ package cn.zyc.bulid;
  */
 public interface Builder {
     public void buildOne();
+
     public void buildTwo();
+
     public Product retrievePro();
 }

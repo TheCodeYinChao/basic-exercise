@@ -13,8 +13,9 @@ public class Context {
     public Context(Strategy strategy) {
         this.strategy = strategy;
     }
-    public int executeStrategy(int num1,int num2){
-        return strategy.doOperatiom(num1,num2);
+
+    public int executeStrategy(int num1, int num2) {
+        return strategy.doOperatiom(num1, num2);
     }
 
 }

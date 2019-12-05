@@ -12,7 +12,7 @@ public class MainTest {
         Anamle anamle = (Anamle) new ProxyC().newInstance(new Dog());
         anamle.run();
 
-        Flower flower = (Flower)new ProxyC().newInstance(new Rose());
+        Flower flower = (Flower) new ProxyC().newInstance(new Rose());
         flower.des();
     }
 }

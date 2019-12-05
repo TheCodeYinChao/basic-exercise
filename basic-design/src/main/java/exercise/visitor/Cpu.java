@@ -5,7 +5,8 @@ public class Cpu extends ComputerPart {
     public void accept(Visitor visitor) {
         visitor.viditor(this);
     }
-    public int getPirce(){
+
+    public int getPirce() {
         return 100;
     }
 }

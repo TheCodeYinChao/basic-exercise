@@ -8,7 +8,7 @@ package cn.zyc.adapterpattem;
  * Description:
  */
 public class AmericaAdapter implements TwoPinSoket {
-    ThreePinSoket tps ;
+    ThreePinSoket tps;
 
     public AmericaAdapter(ThreePinSoket tps) {
         this.tps = tps;
@@ -19,6 +19,6 @@ public class AmericaAdapter implements TwoPinSoket {
     }
 
     public int voltage() {
-        return tps.voltage()*2;
+        return tps.voltage() * 2;
     }
 }

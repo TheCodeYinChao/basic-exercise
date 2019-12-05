@@ -6,7 +6,7 @@ package com.zyc.genericity;
 public class Restrain<E extends IDemo> {
     private E e;
 
-    public void handle(IDemo<? extends SuperDemo> demo){
+    public void handle(IDemo<? extends SuperDemo> demo) {
 
     }
 }

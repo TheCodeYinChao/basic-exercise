@@ -7,7 +7,7 @@ package cn.zyc.adapterpattem;
  * Version ：1.0
  * Description:
  */
-public class TwoPinSoketChina implements  TwoPinSoket {
+public class TwoPinSoketChina implements TwoPinSoket {
     public void chargeWithTwoPin() {
         System.out.println("中国两孔插座");
     }

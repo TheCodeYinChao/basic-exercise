@@ -1,6 +1,6 @@
 package cn.zyc.delegate;
 
-public class ConcreteNotifier extends Notifier{
+public class ConcreteNotifier extends Notifier {
 
     @Override
     public void addListener(Object object, String methodName, Object... args) {

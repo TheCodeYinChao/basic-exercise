@@ -12,20 +12,18 @@ public class Main {
 
     }
 
-    static class  De{
+    static class De {
         public void test() throws InterruptedException {
-            Thread t1 = new Thread(new Runnable(){
-                public void run(){
-                    synchronized(Thread.class){
-                        try
-                        {
+            Thread t1 = new Thread(new Runnable() {
+                public void run() {
+                    synchronized (Thread.class) {
+                        try {
                             Thread.sleep(Long.MAX_VALUE);
+                        } catch (InterruptedException e) {
                         }
-                        catch (InterruptedException e)
-                        {}
                     }
                 }
-            },"我是线程1");
+            }, "我是线程1");
             t1.start();
 
             Thread.sleep(500);

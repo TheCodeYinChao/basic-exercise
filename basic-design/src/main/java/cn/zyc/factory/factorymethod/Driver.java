@@ -7,6 +7,6 @@ package cn.zyc.factory.factorymethod;
  * Version ：1.0
  * Description:
  */
-abstract class  Driver {
+abstract class Driver {
     public abstract Car createCar(String car) throws Exception;
 }

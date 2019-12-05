@@ -12,7 +12,7 @@ public class Context {
         this.game = game;
     }
 
-    public void 游戏(){
+    public void 游戏() {
         game.plan();
     }
 }

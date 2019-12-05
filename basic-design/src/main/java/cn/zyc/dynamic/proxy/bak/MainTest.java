@@ -7,7 +7,7 @@ package cn.zyc.dynamic.proxy.bak;
  */
 public class MainTest {
     public static void main(String[] args) {
-        Flower flower = (Flower)  new ProxyF().instance(new Rose());
+        Flower flower = (Flower) new ProxyF().instance(new Rose());
         flower.open();
     }
 }

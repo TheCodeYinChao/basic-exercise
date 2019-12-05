@@ -14,16 +14,16 @@ public class MainTest {
         User user = new User();
         user.setName("nihao");
 
-        String sql1=query(user);
+        String sql1 = query(user);
         System.out.println(sql1);
     }
 
-    public static String query(User user){
+    public static String query(User user) {
         Class<? extends User> aClass = user.getClass();
         Field[] fields = aClass.getDeclaredFields();
-        for (Field field:fields){
+        for (Field field : fields) {
             boolean assignableFrom = field.isAnnotationPresent(Demo.class);
-            if(assignableFrom){
+            if (assignableFrom) {
                 Demo annotation = field.getAnnotation(Demo.class);
                 String name = annotation.name();
                 System.out.println(name);

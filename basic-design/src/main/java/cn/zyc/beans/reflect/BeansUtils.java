@@ -12,16 +12,16 @@ import java.util.Map;
  * Description:
  */
 public class BeansUtils {
-    public static <T> T handleBeans(T t)throws Exception{
+    public static <T> T handleBeans(T t) throws Exception {
 
         Class<?> aClass = t.getClass();
         Object o = aClass.newInstance();
         Field[] declaredFields = aClass.getDeclaredFields();
-        for(Field field :declaredFields){
+        for (Field field : declaredFields) {
             String fieldName = field.getName();
             System.out.println(fieldName);
             Method method = aClass.getDeclaredMethod("set" + StringUtil.getStr(fieldName), field.getType());
-            method.invoke(o,"nihao");
+            method.invoke(o, "nihao");
         }
         System.out.println(o.toString());
 
@@ -30,13 +30,13 @@ public class BeansUtils {
         return null;
     }
 
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         handleBeans(new User());
     }
 
-    static  class  StringUtil{
+    static class StringUtil {
 
-        public static String getStr(String filed){
+        public static String getStr(String filed) {
             String substring = filed.substring(0, 1);
             String s = substring.toUpperCase() + filed.substring(1, filed.length());
             return s;

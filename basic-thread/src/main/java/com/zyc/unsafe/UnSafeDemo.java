@@ -8,16 +8,16 @@ import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
 class UnSafeDemo {
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         //1.最简单的使用方式是基于反射获取Unsafe实例
         Field f = Unsafe.class.getDeclaredField("theUnsafe");
         f.setAccessible(true);
         Unsafe unsafe = (Unsafe) f.get(null);
-        operArray( unsafe);
+        operArray(unsafe);
     }
 
 
-    public static void  operArray(Unsafe unsafe){
+    public static void operArray(Unsafe unsafe) {
         /**
          * 操作数组:
          * 可以获取数组的在内容中的基本偏移量（arrayBaseOffset），获取数组内元素的间隔（比例），
@@ -28,7 +28,7 @@ class UnSafeDemo {
         System.out.println("string[] base offset is :" + i);
 
         //every index scale
-                long scale = unsafe.arrayIndexScale(String[].class);
+        long scale = unsafe.arrayIndexScale(String[].class);
         System.out.println("string[] index scale is " + scale);
 
         //print first string in strings[]
@@ -41,13 +41,13 @@ class UnSafeDemo {
         System.out.println("after set ,first element is :" + unsafe.getObject(strings, i + scale * 0));
 
 
-         System.out.println("after set ,first element is :" + unsafe.getObject(strings, i + scale ));
+        System.out.println("after set ,first element is :" + unsafe.getObject(strings, i + scale));
 
-        System.out.println("after set ,first element is :" + unsafe.getObject(strings, i + scale+scale ));
+        System.out.println("after set ,first element is :" + unsafe.getObject(strings, i + scale + scale));
     }
 
 
-    public static void objMery(Unsafe unsafe)throws Exception{
+    public static void objMery(Unsafe unsafe) throws Exception {
         /**
          * 对象操作
          * 实例化Data
@@ -61,54 +61,53 @@ class UnSafeDemo {
          * 但你实际上又不需要构造函数，因为它可能会使问题更加困难而且会有副作用。
          *
          */
-    //调用allocateInstance函数避免了在我们不需要构造函数的时候却调用它
+        //调用allocateInstance函数避免了在我们不需要构造函数的时候却调用它
         Data data = (Data) unsafe.allocateInstance(Data.class);
         data.setId(1L);
         data.setName("unsafe");
         System.out.println(data);
 
-    //返回成员属性在内存中的地址相对于对象内存地址的偏移量
+        //返回成员属性在内存中的地址相对于对象内存地址的偏移量
         Field nameField = Data.class.getDeclaredField("name");
         long fieldOffset = unsafe.objectFieldOffset(nameField);
-    //putLong，putInt，putDouble，putChar，putObject等方法，直接修改内存数据（可以越过访问权限）
-        unsafe.putObject(data,fieldOffset,"这是新的值");
+        //putLong，putInt，putDouble，putChar，putObject等方法，直接修改内存数据（可以越过访问权限）
+        unsafe.putObject(data, fieldOffset, "这是新的值");
         System.out.println(data.getName());
 
 
-    /**
-     * 我们可以在运行时创建一个类，比如从已编译的.class文件中。将类内容读取为字节数组，
-     * 并正确地传递给defineClass方法；当你必须动态创建类，而现有代码中有一些代理， 这是很有用的
-     */
-    File file = new File("C:\\workspace\\idea2\\disruptor\\target\\classes\\com\\onyx\\distruptor\\test\\Data.class");
-    FileInputStream input = new FileInputStream(file);
-    byte[] content = new byte[(int)file.length()];
-    input.read(content);
-    Class c = unsafe.defineClass(null, content, 0, content.length,null,null);
-    c.getMethod("getId").invoke(c.newInstance(), null);
+        /**
+         * 我们可以在运行时创建一个类，比如从已编译的.class文件中。将类内容读取为字节数组，
+         * 并正确地传递给defineClass方法；当你必须动态创建类，而现有代码中有一些代理， 这是很有用的
+         */
+        File file = new File("C:\\workspace\\idea2\\disruptor\\target\\classes\\com\\onyx\\distruptor\\test\\Data.class");
+        FileInputStream input = new FileInputStream(file);
+        byte[] content = new byte[(int) file.length()];
+        input.read(content);
+        Class c = unsafe.defineClass(null, content, 0, content.length, null, null);
+        c.getMethod("getId").invoke(c.newInstance(), null);
 
 
-
-    /**
-     * 内存操作
-     * 可以在Java内存区域中分配内存（allocateMemory），设置内存（setMemory，用于初始化），
-     * 在指定的内存位置中设置值（putInt\putBoolean\putDouble等基本类型）
-     */
-    //分配一个8byte的内存
-    long address = unsafe.allocateMemory(8L);
-    //初始化内存填充1
-    unsafe.setMemory(address, 8L, (byte) 1);
-    //测试输出
-    System.out.println("add byte to memory:" + unsafe.getInt(address));
-    //设置0-3 4个byte为0x7fffffff
-    unsafe.putInt(address, 0x7fffffff);
-    //设置4-7 4个byte为0x80000000
-    unsafe.putInt(address + 4, 0x80000000);
-    //int占用4byte
-    System.out.println("add byte to memory:" + unsafe.getInt(address));
-    System.out.println("add byte to memory:" + unsafe.getInt(address + 4));
+        /**
+         * 内存操作
+         * 可以在Java内存区域中分配内存（allocateMemory），设置内存（setMemory，用于初始化），
+         * 在指定的内存位置中设置值（putInt\putBoolean\putDouble等基本类型）
+         */
+        //分配一个8byte的内存
+        long address = unsafe.allocateMemory(8L);
+        //初始化内存填充1
+        unsafe.setMemory(address, 8L, (byte) 1);
+        //测试输出
+        System.out.println("add byte to memory:" + unsafe.getInt(address));
+        //设置0-3 4个byte为0x7fffffff
+        unsafe.putInt(address, 0x7fffffff);
+        //设置4-7 4个byte为0x80000000
+        unsafe.putInt(address + 4, 0x80000000);
+        //int占用4byte
+        System.out.println("add byte to memory:" + unsafe.getInt(address));
+        System.out.println("add byte to memory:" + unsafe.getInt(address + 4));
     }
 
-    public static void casDemo(Unsafe unsafe)throws  Exception{
+    public static void casDemo(Unsafe unsafe) throws Exception {
         /**
          * CAS操作
          * Compare And Swap（比较并交换），当需要改变的值为期望的值时，那么就替换它为新的值，是原子
@@ -122,11 +121,11 @@ class UnSafeDemo {
         long l = unsafe.objectFieldOffset(id);
         id.setAccessible(true);
         //比较并交换，比如id的值如果是所期望的值1，那么就替换为2，否则不做处理
-        unsafe.compareAndSwapLong(data,1L,1L,2L);
+        unsafe.compareAndSwapLong(data, 1L, 1L, 2L);
         System.out.println(data.getId());
     }
 
-    public  static void  constonAndThread(Unsafe unsafe)throws Exception{
+    public static void constonAndThread(Unsafe unsafe) throws Exception {
         /**
          * 常量获取
          *
@@ -142,7 +141,6 @@ class UnSafeDemo {
         System.out.println("unsafe array int base offset:" + Unsafe.ARRAY_INT_BASE_OFFSET);
 
 
-
         /**
          * 线程许可
          * 许可线程通过（park），或者让线程等待许可(unpark)，
@@ -150,11 +148,11 @@ class UnSafeDemo {
         Thread packThread = new Thread(() -> {
             long startTime = System.currentTimeMillis();
             //纳秒，相对时间park
-            unsafe.park(false,3000000000L);
+            unsafe.park(false, 3000000000L);
             //毫秒，绝对时间park
             //unsafe.park(true,System.currentTimeMillis()+3000);
 
-            System.out.println("main thread end,cost :"+(System.currentTimeMillis()-startTime)+"ms");
+            System.out.println("main thread end,cost :" + (System.currentTimeMillis() - startTime) + "ms");
         });
         packThread.start();
         TimeUnit.SECONDS.sleep(1);
@@ -163,7 +161,7 @@ class UnSafeDemo {
     }
 
 
-    static class SuperArray{
+    static class SuperArray {
         private static Unsafe unsafe = null;
         private static Field getUnsafe = null;
 
@@ -204,13 +202,13 @@ class UnSafeDemo {
 
 
         public static void main(String[] args) {
-            long SUPER_SIZE = (long)Integer.MAX_VALUE * 2;
+            long SUPER_SIZE = (long) Integer.MAX_VALUE * 2;
             SuperArray array = new SuperArray(SUPER_SIZE);
             System.out.println("Array size:" + array.size()); // 4294967294
-            int sum=0;
+            int sum = 0;
             for (int i = 0; i < 100; i++) {
-                array.set((long)Integer.MAX_VALUE + i, (byte)3);
-                sum += array.get((long)Integer.MAX_VALUE + i);
+                array.set((long) Integer.MAX_VALUE + i, (byte) 3);
+                sum += array.get((long) Integer.MAX_VALUE + i);
             }
             System.out.println(sum);
         }
