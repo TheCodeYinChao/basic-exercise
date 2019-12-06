@@ -43,6 +43,12 @@
             <version>2.5.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.illposed.osc</groupId>
+            <artifactId>javaosc-core</artifactId>
+            <version>0.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
