@@ -1,16 +1,24 @@
-package osc;
+package com.cos.ws.cosws.osc;
 
 import com.illposed.osc.OSCBundle;
 import com.illposed.osc.OSCMessage;
 import com.illposed.osc.OSCPortOut;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class Client {
 
     public static void main(String[] args) throws Exception{
         /*------------------------------设置要发送的目标主机的IP地址------------------------------------*/
-        InetAddress ipAddr = InetAddress.getByName("127.0.0.1");
+        InetAddress ipAddr = InetAddress.getByName("224.0.0.88");
+    /*    byte[] data = new byte[1024];
+        DatagramSocket socket = new DatagramSocket(10000);
+        DatagramPacket datagramPacket = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), 10000);
+
+        socket.send(datagramPacket);*/
+
         /*------------------------------设置要发送的目标主机的端口------------------------------------*/
         Integer port = 7000;
         /*------------------------------准备个快递员------------------------------------*/

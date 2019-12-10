@@ -1,4 +1,4 @@
-package osc;
+package com.cos.ws.cosws.osc;
 
 import com.illposed.osc.OSCBundle;
 import com.illposed.osc.OSCMessage;
