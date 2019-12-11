@@ -26,6 +26,7 @@ public class ReadWriteLockDemo {
         writeLock.lock();
         writeLock.unlock();
 
+//        锁升级 ： 读锁未释放申请写锁 会导致死锁
         //锁降级  那么锁降级有什么用？答案是为了可见性的保证
 //       完整代码：update（是否更新的标志, false 标识可以更新，volatile修饰，使所有线程能够实时知道数据是否要改变）。
 //
