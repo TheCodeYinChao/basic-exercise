@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 @Data
 public class MsgCommand implements Serializable {
+    private int oscListenerPort;
     private String reqIp;//请求ip
     private int type;//0 连接 1 下线
     private String targetIp;//目的IP
