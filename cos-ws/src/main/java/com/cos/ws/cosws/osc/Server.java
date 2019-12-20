@@ -20,7 +20,8 @@ public class Server {
 
     public static void test1()throws Exception{
         InetAddress ipAddr = InetAddress.getByName("127.0.0.1");
-        Integer port = 8764;
+//        Integer port = 8764;
+        Integer port = 7000;
         OSCPortOut out = new OSCPortOut(ipAddr, port);
         //来个箱子，准备装东西
         OSCMessage message = new OSCMessage();
