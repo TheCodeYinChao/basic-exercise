@@ -28,6 +28,7 @@ logs/
 *.tmp
 *mvnw.cmd
 *mvnw
+*HELP.md
 
 # system ignore
 .DS_Store
