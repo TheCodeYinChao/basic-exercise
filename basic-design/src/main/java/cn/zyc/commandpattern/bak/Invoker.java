@@ -11,7 +11,7 @@ public class Invoker {
         this.commod = commod;
     }
 
-    public void execute(){
+    public void execute() {
         commod.execute();
     }
 }

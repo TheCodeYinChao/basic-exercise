@@ -8,8 +8,8 @@ public class ThreadDemo {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                for(;;){
-                    if(Thread.currentThread().isInterrupted()){//检测中断位置
+                for (; ; ) {
+                    if (Thread.currentThread().isInterrupted()) {//检测中断位置
                         System.out.println("线程已经中断");
 
                         break;

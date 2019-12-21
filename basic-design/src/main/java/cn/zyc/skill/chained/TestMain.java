@@ -38,8 +38,8 @@ public class TestMain {
         MemberInfoChain memberInfoChain = new MemberInfoChain();
         memberInfoChain.setId(id)
                 .setName(name)
-                .setBaseInfo("age",age)
-                .setBaseInfo("memberLevel",memberLevel)
+                .setBaseInfo("age", age)
+                .setBaseInfo("memberLevel", memberLevel)
                 .setOtherInfo(otherInfo1)
                 .setOtherInfo(otherInfo2)
                 .setOtherInfo(otherInfo3);

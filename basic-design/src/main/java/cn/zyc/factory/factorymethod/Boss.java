@@ -8,7 +8,7 @@ package cn.zyc.factory.factorymethod;
  * Description:
  */
 public class Boss {
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         Driver d = new BmwDriver();
         Car bmw = d.createCar("bmw");
         bmw.driver();

@@ -11,10 +11,11 @@ public class Stock {
     private String name = "abc";
     private int quantity = 10;
 
-    void buy(){
-        System.out.println("[stock buy]"+name+quantity);
+    void buy() {
+        System.out.println("[stock buy]" + name + quantity);
     }
-    void sell(){
-        System.out.println("[stock sell]"+name+quantity);
+
+    void sell() {
+        System.out.println("[stock sell]" + name + quantity);
     }
 }

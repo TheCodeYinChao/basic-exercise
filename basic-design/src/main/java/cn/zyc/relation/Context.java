@@ -12,7 +12,7 @@ public class Context {
         this.stat = stat;
     }
 
-    public void get(){
+    public void get() {
         stat.sys();
     }
 }

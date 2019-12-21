@@ -5,7 +5,7 @@ package com.zyc.sprdemo;
  */
 public class TestSpring {
     public static void main(String[] args) {
-        ServiceImpl bean=SpringContainer.getBean();
+        ServiceImpl bean = SpringContainer.getBean();
         bean.buy_Test();
     }
 }

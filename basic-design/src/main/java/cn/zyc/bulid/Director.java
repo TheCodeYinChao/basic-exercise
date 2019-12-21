@@ -7,19 +7,20 @@ package cn.zyc.bulid;
  */
 public class Director {
     private Builder builder;
+
     //这里可以结合工厂模式
-    public void construct(String type){
-        if("one".equals(type)){
-            builder=new ConcreteBuilderOne();
+    public void construct(String type) {
+        if ("one".equals(type)) {
+            builder = new ConcreteBuilderOne();
             builder.buildOne();
             builder.buildTwo();
             builder.retrievePro();
-        }else if("two".equals(type)){
-            builder=new ConcreteBuilderTwo();
+        } else if ("two".equals(type)) {
+            builder = new ConcreteBuilderTwo();
             builder.buildOne();
             builder.buildTwo();
             builder.retrievePro();
-        }else{
+        } else {
 
         }
     }

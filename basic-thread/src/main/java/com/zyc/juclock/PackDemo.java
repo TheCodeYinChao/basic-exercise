@@ -3,7 +3,7 @@ package com.zyc.juclock;
 import java.util.concurrent.locks.LockSupport;
 
 public class PackDemo {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

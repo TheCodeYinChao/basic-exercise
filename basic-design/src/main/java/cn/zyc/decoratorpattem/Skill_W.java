@@ -7,9 +7,10 @@ package cn.zyc.decoratorpattem;
  * Version ：1.0
  * Description:
  */
-public class Skill_W extends Skills{
+public class Skill_W extends Skills {
     private String name;
-    public Skill_W(Hero hero,String name) {
+
+    public Skill_W(Hero hero, String name) {
         super(hero);
         this.name = name;
     }

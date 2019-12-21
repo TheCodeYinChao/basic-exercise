@@ -21,13 +21,13 @@ public class Subject1 implements Subject {
 
     public void removeObServer(Observer observer) {
         int i = list.indexOf(observer);
-        if(i >= 0){
+        if (i >= 0) {
             list.remove(i);
         }
     }
 
     public void notifyObServer() {
-        for(Observer s : list){
+        for (Observer s : list) {
             s.update(msg);
         }
     }

@@ -7,14 +7,18 @@ package cn.zyc.statepattem;
  * Version ：1.0
  * Description:
  */
-public abstract  class LiftState {
+public abstract class LiftState {
     protected Context context;
 
     public void setContext(Context context) {
         this.context = context;
     }
-    abstract  void open();
+
+    abstract void open();
+
     abstract void close();
+
     abstract void run();
+
     abstract void stop();
 }

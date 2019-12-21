@@ -3,8 +3,7 @@ package cn.zyc.delegate;
 import java.util.Date;
 
 public class Test {
-    public static void main (String[] args)
-    {
+    public static void main(String[] args) {
         Notifier goodNotifier = new ConcreteNotifier();
 
         PlayingGameListener playingGameListener = new PlayingGameListener();

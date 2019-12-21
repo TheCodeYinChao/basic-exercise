@@ -9,6 +9,6 @@ package cn.zyc.factory.factorymethod;
  */
 public class MrbCar extends Car {
     public void driver() {
-        System.out.println("["+getName()+"]----------->");
+        System.out.println("[" + getName() + "]----------->");
     }
 }

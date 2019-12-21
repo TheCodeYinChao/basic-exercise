@@ -9,14 +9,14 @@ package cn.zyc.factory.soeasyfactory;
  */
 public class CarFactory {
 
-    public static Car createCar(String name){
+    public static Car createCar(String name) {
         Car car = null;
-        if(name.equals("bmw")) {
+        if (name.equals("bmw")) {
             car = new BmwCar();
         }
-        if(name.equals("mrb")){
+        if (name.equals("mrb")) {
             car = new MrbCar();
         }
-        return  car;
+        return car;
     }
 }

@@ -27,10 +27,10 @@ public class MemberInfoChain {
     }
 
     public MemberInfoChain setBaseInfo(String key, Object value) {
-        if(this.baseInfo == null){
+        if (this.baseInfo == null) {
             this.baseInfo = new HashMap<String, Object>();
         }
-        this.baseInfo.put(key,value);
+        this.baseInfo.put(key, value);
         return this;
     }
 

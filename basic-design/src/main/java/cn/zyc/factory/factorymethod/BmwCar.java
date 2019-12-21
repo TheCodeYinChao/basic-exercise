@@ -10,6 +10,6 @@ package cn.zyc.factory.factorymethod;
 public class BmwCar extends Car {
 
     public void driver() {
-        System.out.println("["+getName()+"]----------->");
+        System.out.println("[" + getName() + "]----------->");
     }
 }

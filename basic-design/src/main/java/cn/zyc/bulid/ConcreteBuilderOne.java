@@ -6,14 +6,17 @@ package cn.zyc.bulid;
  * @Description:
  */
 public class ConcreteBuilderOne implements Builder {
-    private Product product=new ProductOne();
-    public void buildOne(){
+    private Product product = new ProductOne();
+
+    public void buildOne() {
         //打造第一个零件
     }
-    public void buildTwo(){
+
+    public void buildTwo() {
         //打造第二个零件
     }
-    public Product retrievePro(){
+
+    public Product retrievePro() {
         //组装出产品2
         return product;
     }

@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
  * Created by Admin on 2019/5/12.
  */
 @Slf4j
-public class RealData implements Data{
+public class RealData implements Data {
     private String result;
     private String param;
 
@@ -15,7 +15,7 @@ public class RealData implements Data{
     }
 
     public void request() {
-        log.info("Receive Param [{}]",this.param);
+        log.info("Receive Param [{}]", this.param);
         try {
             Thread.sleep(5000);
             result = "I'm is execute result ...";

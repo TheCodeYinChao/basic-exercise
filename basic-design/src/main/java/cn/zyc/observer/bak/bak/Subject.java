@@ -8,7 +8,10 @@ import java.util.List;
  */
 public abstract class Subject {
     public List<Observer> observers = new ArrayList();
+
     abstract void re(Observer observer);
+
     abstract void rm(Observer observer);
+
     abstract void ny(String msg);
 }

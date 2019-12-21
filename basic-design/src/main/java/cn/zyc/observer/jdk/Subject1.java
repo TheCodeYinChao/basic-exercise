@@ -12,11 +12,10 @@ import java.util.Observable;
  */
 public class Subject1 extends Observable {
 
-    private String msg ;
+    private String msg;
 
 
-    public String getMsg()
-    {
+    public String getMsg() {
         return msg;
     }
 
@@ -26,9 +25,8 @@ public class Subject1 extends Observable {
      *
      * @param msg
      */
-    public void setMsg(String msg)
-    {
-        this.msg = msg  ;
+    public void setMsg(String msg) {
+        this.msg = msg;
         setChanged();
         notifyObservers();
     }

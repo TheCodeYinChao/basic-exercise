@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class Subject1 implements Subject {
     private List<Observer> os = new ArrayList<>();
+
     @Override
     public void register(Observer o) {
         os.add(o);
@@ -22,8 +23,9 @@ public class Subject1 implements Subject {
 
     @Override
     public void nitify(String msg) {
-       for(Observer o:os){
+        for (Observer o : os) {
             o.recevice(msg);
-       };
+        }
+        ;
     }
 }

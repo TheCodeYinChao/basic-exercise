@@ -8,5 +8,5 @@ package cn.zyc.strategypattern;
  * Description:
  */
 public interface Strategy {
-    public int doOperatiom(int num1,int num2);
+    public int doOperatiom(int num1, int num2);
 }

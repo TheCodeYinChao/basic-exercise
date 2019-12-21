@@ -7,8 +7,9 @@ package cn.zyc.factory.soeasyfactory;
  * Version ：1.0
  * Description: 车基类
  */
-abstract class  Car {
+abstract class Car {
     private String name;
+
     abstract void drive();
 
     public String getName() {

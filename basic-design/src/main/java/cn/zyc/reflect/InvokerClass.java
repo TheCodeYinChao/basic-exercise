@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class InvokerClass {
 
-    public  void method(Map<String,String > map){
+    public void method(Map<String, String> map) {
         System.out.println(map.toString());
     }
 }

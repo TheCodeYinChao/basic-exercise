@@ -8,35 +8,35 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class Master {
 
     //任务队列
-    private  ConcurrentLinkedQueue<Data> workQueue = new ConcurrentLinkedQueue<Data>();
+    private ConcurrentLinkedQueue<Data> workQueue = new ConcurrentLinkedQueue<Data>();
     //worker集合
-    private  Map<String,Thread> workers = new HashMap<String, Thread>();
+    private Map<String, Thread> workers = new HashMap<String, Thread>();
     //结果容器
-    private ConcurrentHashMap<String,Object> resultMap = new ConcurrentHashMap<String, Object>();
+    private ConcurrentHashMap<String, Object> resultMap = new ConcurrentHashMap<String, Object>();
 
-    public Master(Worker worker,int workerCount) {
+    public Master(Worker worker, int workerCount) {
         worker.setQueue(workQueue);
         worker.setResults(resultMap);
 
-        for(int i=0 ;i < workerCount;i++){
-            workers.put(Integer.toString(i),new Thread(worker));
+        for (int i = 0; i < workerCount; i++) {
+            workers.put(Integer.toString(i), new Thread(worker));
         }
     }
 
-    public void submit(Data task){
+    public void submit(Data task) {
         workQueue.add(task);
 
     }
 
-    public void execute(){
-        for(Map.Entry<String, Thread> me : workers.entrySet()){
+    public void execute() {
+        for (Map.Entry<String, Thread> me : workers.entrySet()) {
             me.getValue().start();
         }
     }
 
     public boolean isComplete() {
-        for(Map.Entry<String, Thread> me : workers.entrySet()){
-            if(me.getValue().getState() != Thread.State.TERMINATED){
+        for (Map.Entry<String, Thread> me : workers.entrySet()) {
+            if (me.getValue().getState() != Thread.State.TERMINATED) {
                 return false;
             }
         }
@@ -45,7 +45,7 @@ public class Master {
 
     public String getResult() {
         String priceResult = "RESULT ";
-        for(Map.Entry<String, Object> me : resultMap.entrySet()){
+        for (Map.Entry<String, Object> me : resultMap.entrySet()) {
             priceResult += me.getValue();
         }
         return priceResult;

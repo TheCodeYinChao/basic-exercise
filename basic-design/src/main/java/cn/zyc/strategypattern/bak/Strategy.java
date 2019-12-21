@@ -6,5 +6,5 @@ package cn.zyc.strategypattern.bak;
  * @Description:
  */
 public interface Strategy {
-    int execute(int a,int b);
+    int execute(int a, int b);
 }

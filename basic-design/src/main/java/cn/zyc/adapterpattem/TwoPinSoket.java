@@ -8,6 +8,7 @@ package cn.zyc.adapterpattem;
  * Description:
  */
 public interface TwoPinSoket {
-    public void   chargeWithTwoPin();
-    public int    voltage();
+    public void chargeWithTwoPin();
+
+    public int voltage();
 }

@@ -7,7 +7,7 @@ package cn.zyc.decoratorpattem;
  * Version ：1.0
  * Description:
  */
-public class Skill_Q extends Skills{
+public class Skill_Q extends Skills {
     private String skillName;
 
     public Skill_Q(Hero hero, String skillName) {
@@ -17,7 +17,7 @@ public class Skill_Q extends Skills{
 
     @Override
     public void learnSkills() {
-        System.out.println("学习了技能Q:" +skillName);
+        System.out.println("学习了技能Q:" + skillName);
         super.learnSkills();
     }
 }

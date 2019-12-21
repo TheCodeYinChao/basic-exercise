@@ -9,6 +9,7 @@ package cn.zyc.factory.factorymethod;
  */
 abstract class Car {
     private String name;
+
     public abstract void driver();
 
     public String getName() {

@@ -20,11 +20,13 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        while (!isStop){
+        while (!isStop) {
             Data data = queue.poll();
-            if(data == null){continue;}
+            if (data == null) {
+                continue;
+            }
             try {
-                log.info("recive data [{}]",data.toString());
+                log.info("recive data [{}]", data.toString());
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -32,7 +34,7 @@ public class Consumer implements Runnable {
         }
     }
 
-    public void stop(){
+    public void stop() {
         this.isStop = true;
     }
 }

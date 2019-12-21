@@ -11,7 +11,8 @@ public class LockDemo {
     public static void main(String[] args) {
 
         ReentrantLock lock = new ReentrantLock();
-        lock.lock();;
+        lock.lock();
+        ;
         lock.unlock();
     }
 }

@@ -9,6 +9,6 @@ package cn.zyc.strategypattern;
  */
 public class OperationSub implements Strategy {
     public int doOperatiom(int num1, int num2) {
-        return num1-num2;
+        return num1 - num2;
     }
 }

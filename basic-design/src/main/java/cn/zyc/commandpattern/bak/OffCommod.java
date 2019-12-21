@@ -9,6 +9,7 @@ public class OffCommod implements Commod {
     public OffCommod(Recevicer recevicer) {
         this.recevicer = recevicer;
     }
+
     @Override
     public void execute() {
         recevicer.execute();

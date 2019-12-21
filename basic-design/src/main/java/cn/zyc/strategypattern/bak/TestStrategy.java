@@ -10,10 +10,10 @@ public class TestStrategy {
         Strategy strategy = new Add();
         Context context = new Context();
         context.setStrategy(strategy);
-        System.out.println(context.execute(1,2));
+        System.out.println(context.execute(1, 2));
 
         context.setStrategy(new Sub());
-        System.out.println(context.execute(3,1));
+        System.out.println(context.execute(3, 1));
 
     }
 }

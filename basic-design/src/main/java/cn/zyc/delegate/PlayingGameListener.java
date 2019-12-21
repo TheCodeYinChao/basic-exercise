@@ -3,13 +3,11 @@ package cn.zyc.delegate;
 import java.util.Date;
 
 public class PlayingGameListener {
-    public PlayingGameListener()
-    {
+    public PlayingGameListener() {
         System.out.println("playing");
     }
 
-    public void stopPlayingGame(Date date)
-    {
+    public void stopPlayingGame(Date date) {
         System.out.println("stop playing" + date);
     }
 }

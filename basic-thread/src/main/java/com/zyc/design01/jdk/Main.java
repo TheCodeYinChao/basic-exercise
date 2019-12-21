@@ -22,9 +22,9 @@ public class Main {
         futures.add(executor.submit(new Task()));
         futures.add(executor.submit(new Task()));
 
-        for(Future<Integer> future:futures){
+        for (Future<Integer> future : futures) {
             Integer rs = future.get();
-            log.info("result [{}]",rs);
+            log.info("result [{}]", rs);
         }
     }
 }
