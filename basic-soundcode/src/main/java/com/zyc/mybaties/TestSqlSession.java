@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.mybatis.spring.annotation.MapperScan;
 
 import java.io.InputStream;
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.Map;
 /**
  * Created by Admin on 2019/12/22.
  */
+
+//@MapperScan
 public class TestSqlSession {
 
     @Test
