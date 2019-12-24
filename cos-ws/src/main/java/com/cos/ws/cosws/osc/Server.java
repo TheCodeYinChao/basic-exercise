@@ -12,16 +12,16 @@ import java.util.Scanner;
 
 public class Server {
     public static void main(String[] args) throws Exception{
-//        test();
-        test1();
+        test();
+//        test1();
 //        test3();
     }
 
 
     public static void test1()throws Exception{
         InetAddress ipAddr = InetAddress.getByName("127.0.0.1");
-//        Integer port = 8764;
-        Integer port = 7000;
+        Integer port = 8764;
+//        Integer port = 7000;
         OSCPortOut out = new OSCPortOut(ipAddr, port);
         //来个箱子，准备装东西
         OSCMessage message = new OSCMessage();
@@ -51,24 +51,28 @@ public class Server {
 
     public static void test()throws Exception{
         /*------------------------------设置要发送的目标主机的IP地址------------------------------------*/
-        InetAddress ipAddr = InetAddress.getByName("10.10.10.118");
+        InetAddress ipAddr = InetAddress.getByName("10.10.10.167");
         /*------------------------------设置要发送的目标主机的端口------------------------------------*/
-        Integer port = 8764;
+//        Integer port = 8764;
+        Integer port = 7000;
         /*------------------------------准备个快递员------------------------------------*/
         OSCPortOut out = new OSCPortOut(ipAddr, port);
         /*------------------------------准备要送的物件------------------------------------*/
         //来个箱子，准备装东西
         OSCMessage message = new OSCMessage();
         //给箱子上贴个快递单，告诉快递员要送到业主家的哪个位置
-        message.setAddress("/");
+        message.setAddress("/lzx");
         //给箱子里装东西，先放十块钱进去,再放一个蛋糕进去
 //        message.addArgument(10);
 
 
         MsgCommand msgCommand = new MsgCommand();
         msgCommand.setReqIp("/10.10.10.167");
-        msgCommand.setTargetIp("10.10.10.167");
-        msgCommand.setType(2);
+        msgCommand.setTargetIp("127.0.0.1");
+        msgCommand.setType(4);
+        msgCommand.setOscListenerPort(57367);
+        msgCommand.setMsgSerial(526325055098064896L);
+
         msgCommand.setDataCommand("我是osc 发送端");
         JacksonUtil.toJson(msgCommand);
         byte[] bytes = JacksonUtil.toJson(msgCommand).getBytes();

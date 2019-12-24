@@ -17,7 +17,6 @@ public class DemoPlugin implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         Object proceed = invocation.proceed();
-
         return proceed;
     }
 
@@ -29,5 +28,22 @@ public class DemoPlugin implements Interceptor {
     @Override
     public void setProperties(Properties properties) {
 
+    }
+
+    public static void main(String[] args) {
+        int[] by = new int['a'];
+        System.out.println(by.length);
+
+        byte[] buffer = new byte[65506];
+
+        System.out.println(buffer.length);
+        System.out.println("a".getBytes().length);
+
+
+        byte[] bytes = "￣".getBytes();
+        System.out.println(bytes.length);
+       /* for(int i =0;i<100;i++){
+            by[i]=i;
+        }*/
     }
 }

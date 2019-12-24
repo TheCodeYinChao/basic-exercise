@@ -24,6 +24,7 @@
         <module>basic-collection</module>
         <module>basic-jvm</module>
         <module>basic-arithmetic</module>
+        <module>basic-soundcode</module>
         <module>cos-ws</module>
     </modules>
 

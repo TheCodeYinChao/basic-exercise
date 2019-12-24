@@ -14,4 +14,5 @@ public class MsgCommand implements Serializable {
     private int type;//0 连接 1 下线
     private String targetIp;//目的IP
     private Object dataCommand;//数据指令
+    private Long msgSerial;
 }
