@@ -1,1 +1,15 @@
+利用动态代理实现的责任链模式
+
+registerAll
+
+Target --> TargetProxy1 --> TargetProxy2 -->TargetProxy3
+
+
+执行顺序
+Target --> TargetProxy1（target，Interceptor.process---invocation-method.invoke()） --> TargetProxy2（target（TargetProxy1），Interceptor.process---invocation-method.invoke()） -->TargetProxy3（target（TargetProxy3），Interceptor.process---invocation-method.invoke()）
+invoke()
+Target <-- TargetProxy1（target，Interceptor.process---invocation-method.invoke()） <-- TargetProxy2（target（TargetProxy1），Interceptor.process---invocation-method.invoke()） <--TargetProxy3（target（TargetProxy3），InterceptorInterceptor.process---invocation-method.invoke()）
+
+
+
 https://www.cnblogs.com/kakaxisir/p/4579110.html
