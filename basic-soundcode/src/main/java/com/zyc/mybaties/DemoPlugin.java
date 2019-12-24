@@ -33,12 +33,11 @@ public class DemoPlugin implements Interceptor {
     public static void main(String[] args) {
         int[] by = new int['a'];
         System.out.println(by.length);
-
-        byte[] buffer = new byte[65506];
+        /* 数组优化后会变成这样*/
+        byte[] buffer = new byte['￣'];
 
         System.out.println(buffer.length);
         System.out.println("a".getBytes().length);
-
 
         byte[] bytes = "￣".getBytes();
         System.out.println(bytes.length);
