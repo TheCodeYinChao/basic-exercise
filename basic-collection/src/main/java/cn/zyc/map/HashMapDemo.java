@@ -1,6 +1,7 @@
 package cn.zyc.map;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 
 /**
  * Q HashMap 有什么特点，存在的意义是什么？
@@ -48,18 +49,22 @@ import java.util.HashMap;
  */
 
 
-public class HashMapDemo {
+public class HashMapDemo<v,m> extends HashMap<v,m>{
     public static void main(String[] args) {
-        HashMap map = new HashMap();
+        HashMap map = new HashMapDemo();
 
-        map.put("1", null);
-        map.put(null, "");
-        map.put("3", "");
-        System.out.println(map);
+        for(int i =0 ;i <16;i++){
+            map.put("i"+i,"i"+i);
+        }
 
-        Object o = map.get("3");
+        map.remove(1);
 
-        map.remove("3");
-        System.out.println(o);
+
+        Hashtable hashtable = new Hashtable();
+    }
+
+    void afterNodeInsertion(boolean evict) {
+
+        System.out.println(evict);
     }
 }
