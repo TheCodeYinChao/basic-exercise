@@ -24,5 +24,7 @@ public class ConCurrentHashMap {
 
         c.size();
 
+        c.remove(1);
+
     }
 }
