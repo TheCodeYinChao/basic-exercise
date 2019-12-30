@@ -2,6 +2,7 @@ package com.zyc.mybaties;
 
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -21,6 +22,9 @@ public class TestSqlSession {
 
     @Test
     public void testSqlSession()throws Exception{
+
+//        LogFactory
+
         //二级缓存 sqlsession
         InputStream inputStream = Resources.getResourceAsStream("mybaties.xml");
 
