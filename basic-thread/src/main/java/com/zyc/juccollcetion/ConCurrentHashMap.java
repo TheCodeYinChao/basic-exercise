@@ -26,5 +26,6 @@ public class ConCurrentHashMap {
 
         c.remove(1);
 
+        c.forEach((x,y)->{ });
     }
 }
