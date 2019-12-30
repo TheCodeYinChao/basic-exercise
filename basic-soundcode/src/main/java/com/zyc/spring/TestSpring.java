@@ -15,5 +15,8 @@ public class TestSpring {
         AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext("com.zyc.spring");
         A bean = configApplicationContext.getBean(A.class);
 
+
+        TestAutoType beanNamesForType = configApplicationContext.getBean(TestAutoType.class);
+        beanNamesForType.test();
     }
 }
