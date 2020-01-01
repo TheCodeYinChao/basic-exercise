@@ -11,7 +11,7 @@ public class MainTest {
     public static void main(String[] args) {
         Hero hr = new BlindMonk();
 
-        Skills hero = new Skill_Q(new Skill_E(new Skill_W(hr, "www"), "eee"), "q技能");
+        Skill_Q hero = new Skill_Q(new Skill_E(new Skill_W(hr, "www"), "eee"), "q技能");
 
 
         hero.learnSkills();
