@@ -7,9 +7,13 @@ import org.apache.ibatis.cache.decorators.ScheduledCache;
 import org.apache.ibatis.cache.decorators.WeakCache;
 import org.apache.ibatis.cache.impl.PerpetualCache;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.logging.Log;
+import org.apache.ibatis.logging.LogFactory;
+import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.awt.*;
@@ -27,6 +31,10 @@ import java.util.Map;
 //@MapperScan
 public class TestSqlSession {
 
+    /**
+     * 测试sql 查询
+     * @throws Exception
+     */
     @Test
     public void testSqlSession()throws Exception{
 
@@ -49,6 +57,9 @@ public class TestSqlSession {
     }
 
 
+    /**
+     * 缓存装饰模式
+     */
     @Test
     public void decoratorpattem(){
         LruCache lruCache = new LruCache(new BlockingCache(new ScheduledCache(new PerpetualCache("1"))));
@@ -58,6 +69,9 @@ public class TestSqlSession {
     }
 
 
+    /**
+     * 缓存信息
+     */
     @Test
     public void gcTest(){
 
@@ -87,4 +101,21 @@ public class TestSqlSession {
         System.gc();
         Object o = owr.get();
     }
+
+    @Test
+    public void logFactory(){
+        //单例 适配器  工厂
+        System.out.println(LogFactory.class.getName());
+        Log log = LogFactory.getLog(StdOutImpl.class);
+
+        log.debug("ddas");
+        log.trace("sdds");
+
+        Logger logger = Logger.getLogger(TestSqlSession.class);
+        logger.debug("dda");
+
+
+    }
+
+
 }
