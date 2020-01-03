@@ -14,6 +14,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.awt.*;
@@ -118,4 +120,14 @@ public class TestSqlSession {
     }
 
 
+
+
+    @Test
+    public  void logger(){
+        Logger logger = Logger.getLogger(this.getClass());
+        logger.setLevel(Level.DEBUG);
+        logger.debug("aa");
+
+
+    }
 }
