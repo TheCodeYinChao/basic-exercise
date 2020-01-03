@@ -10,6 +10,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.awt.*;
@@ -86,5 +88,15 @@ public class TestSqlSession {
         thread.start();
         System.gc();
         Object o = owr.get();
+    }
+
+
+    @Test
+    public  void logger(){
+        Logger logger = Logger.getLogger(this.getClass());
+        logger.setLevel(Level.DEBUG);
+        logger.debug("aa");
+
+
     }
 }
