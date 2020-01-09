@@ -21,8 +21,22 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * 5个扩展点
  * 1 、 BeanPostProcessor：       AnnotationConfigApplicationContext --- refresh ---prepareBeanFactory---BeanPostProcessor ---ApplicationContextAwareProcessor
  * 2 、 BeanFactoryPostProcessor：
+ * 3、ImportBeanDefinitionRegistrar
  *
  * 知识点3 spring初始化的相关流程围绕着bean定义  bd    {@link BeanDefinition}
+ *
+ *
+ * 知识点4 核心类 ConfigurationClassPostProcessor
+ *
+ * 知识点5 关于bd 分类问题   AnnotatedBeanDefinition  RootBeanDefinition  GenericBeanDefinition......
+ *
+ * 知识点6 @Import  1 普通类  2 ImportSelector  3ImportBeanDefinitionRegistrar
+ *
+ * 往集合里放bd
+ * @see AnnotationConfigApplicationContext#register(java.lang.Class[])
+ * @see #scan()
+ * @see org.springframework.context.annotation.ImportBeanDefinitionRegistrar   //牛逼的类
+ *
  *
  *
  */
@@ -36,7 +50,6 @@ public class TestDemoSpring {
         AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
         configApplicationContext.addBeanFactoryPostProcessor(new MyFactoryPostProcess());
-
 //        configApplicationContext.register(Demo.class);
 //        configApplicationContext.refresh();
         Demo bean = configApplicationContext.getBean(Demo.class);
