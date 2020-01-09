@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * spring
  */
-public class TestSpring {
+public class TestDemoSpring {
     @Test
     public void springDemo(){
 //        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
