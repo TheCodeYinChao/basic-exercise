@@ -1,21 +1,48 @@
 package com.zyc.spring;
 
+import com.zyc.spring.factorypostprocess.MyFactoryPostProcess;
+import com.zyc.spring.postprocess.Demo;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * spring
+ * 三种初始化上下文环境的方法
+ * 1、 ClassPathXmlApplicationContext
+ * 2、 AnnotationConfigApplicationContext + JavaConfig
+ * 3、 AnnotationConfigApplicationContext + 自己注册
+ *
+ * 知识点1 区分 FactoryBean  的用法和用途：简化三方框架接入spring的复杂度，有三方自定义配置文件，来屏蔽
+ * 接入spring 的复杂性。
+ *
+ * 知识点2 spring后置处理器 扩展点
+ *
+ * 5个扩展点
+ * 1 、 BeanPostProcessor：       AnnotationConfigApplicationContext --- refresh ---prepareBeanFactory---BeanPostProcessor ---ApplicationContextAwareProcessor
+ * 2 、 BeanFactoryPostProcessor：
+ *
+ * 知识点3 spring初始化的相关流程围绕着bean定义  bd    {@link BeanDefinition}
+ *
+ *
  */
 public class TestDemoSpring {
     @Test
     public void springDemo(){
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
-        AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext("com.zyc.*.**");
-        A bean = configApplicationContext.getBean(A.class);
+// 1种
+// ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+//
+//        2种
+        AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        TestAutoType beanNamesForType = configApplicationContext.getBean(TestAutoType.class);
-        beanNamesForType.test();
+        configApplicationContext.addBeanFactoryPostProcessor(new MyFactoryPostProcess());
+
+//        configApplicationContext.register(Demo.class);
+//        configApplicationContext.refresh();
+        Demo bean = configApplicationContext.getBean(Demo.class);
+        bean.query();
+//        A bean = configApplicationContext.getBean(A.class);
+//        TestAutoType beanNamesForType = configApplicationContext.getBean(TestAutoType.class);
+//        beanNamesForType.test();
     }
 }
