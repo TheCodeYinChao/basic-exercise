@@ -51,10 +51,10 @@ public class Server {
 
     public static void test()throws Exception{
         /*------------------------------设置要发送的目标主机的IP地址------------------------------------*/
-        InetAddress ipAddr = InetAddress.getByName("10.10.10.167");
+        InetAddress ipAddr = InetAddress.getByName("10.10.10.118");
         /*------------------------------设置要发送的目标主机的端口------------------------------------*/
-//        Integer port = 8764;
-        Integer port = 7000;
+        Integer port = 8764;
+//        Integer port = 7000;
         /*------------------------------准备个快递员------------------------------------*/
         OSCPortOut out = new OSCPortOut(ipAddr, port);
         /*------------------------------准备要送的物件------------------------------------*/
