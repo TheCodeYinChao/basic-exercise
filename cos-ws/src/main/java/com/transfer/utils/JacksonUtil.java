@@ -1,4 +1,4 @@
-package com.cos.ws.cosws.utils;
+package com.transfer.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
