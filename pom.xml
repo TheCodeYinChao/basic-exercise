@@ -26,6 +26,7 @@
         <module>basic-arithmetic</module>
         <module>basic-soundcode</module>
         <module>cos-ws</module>
+        <module>basic-springlog</module>
     </modules>
 
     <properties>
