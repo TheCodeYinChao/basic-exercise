@@ -1,8 +1,5 @@
 package com.zyc.spring;
 
-import com.zyc.spring.importmy.MyMapperScan;
-import com.zyc.spring.importmy.MyMapperScan1;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Component;
 
