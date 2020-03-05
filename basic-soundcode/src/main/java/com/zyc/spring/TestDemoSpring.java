@@ -1,6 +1,8 @@
 package com.zyc.spring;
 
 import com.zyc.spring.factorypostprocess.MyFactoryPostProcess;
+import com.zyc.spring.importmy.ImPortBena;
+import com.zyc.spring.importmy.RegistryBean;
 import com.zyc.spring.postprocess.Demo;
 import org.junit.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -52,10 +54,18 @@ public class TestDemoSpring {
         configApplicationContext.addBeanFactoryPostProcessor(new MyFactoryPostProcess());
 //        configApplicationContext.register(Demo.class);
 //        configApplicationContext.refresh();
+
         Demo bean = configApplicationContext.getBean(Demo.class);
         bean.query();
+
+
 //        A bean = configApplicationContext.getBean(A.class);
 //        TestAutoType beanNamesForType = configApplicationContext.getBean(TestAutoType.class);
 //        beanNamesForType.test();
+
+        ImPortBena bm = configApplicationContext.getBean(ImPortBena.class);
+        bm.list();
+        RegistryBean rb = (RegistryBean)configApplicationContext.getBean("aa");
+        rb.list();
     }
 }
