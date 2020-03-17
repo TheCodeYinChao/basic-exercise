@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Recevice {
     public static void main(String[] args)throws Exception {
            //接收客户端发送的数据   
-         DatagramSocket socket = new DatagramSocket(57367);
+         DatagramSocket socket = new DatagramSocket(8888);
          // 1.创建服务器端DatagramSocket，指定端口
          // 2.创建数据报，用于接收客户端发送的数据
          byte[] data = new byte[1024];//创建字节数组，指定接收的数据包的大小
