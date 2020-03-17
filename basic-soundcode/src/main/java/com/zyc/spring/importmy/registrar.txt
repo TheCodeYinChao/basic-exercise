@@ -1,0 +1,8 @@
+ 知识点1
+ @Repeatable
+ 这个注解的作用是？？ 让一个位置可以注入多个相同的注解
+知识点2
+ 注意ImportBeanDefinitionRegistrar的应用
+ 例如三方框架利用spring的特性将类注入spring容器中 ，通过ImportBeanDefinitionRegistrar
+ 来查收spring的bean的初始化
+ 详细可以参考 @MapperScan

@@ -1,13 +1,13 @@
-package com.cos.ws.cosws;
+package com.transfer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CosWsApplication {
+public class RaydataTransferApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CosWsApplication.class, args);
+        SpringApplication.run(RaydataTransferApplication.class, args);
     }
 
 }

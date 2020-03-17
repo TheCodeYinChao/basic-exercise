@@ -30,9 +30,9 @@ public class ReadWriteLockDemo {
         //锁降级  那么锁降级有什么用？答案是为了可见性的保证
 //       完整代码：update（是否更新的标志, false 标识可以更新，volatile修饰，使所有线程能够实时知道数据是否要改变）。
 //
-//import java.sql.Time;
-//import java.util.concurrent.TimeUnit;
-//import java.util.concurrent.locks.ReentrantReadWriteLock;
+//importmy java.sql.Time;
+//importmy java.util.concurrent.TimeUnit;
+//importmy java.util.concurrent.locks.ReentrantReadWriteLock;
 //
 ///**
 // * 锁降级的学习
