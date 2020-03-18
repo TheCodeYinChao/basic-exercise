@@ -1,13 +1,13 @@
 package com.cos.ws.cosws.osc;
 
-import com.cos.ws.cosws.utils.JacksonUtil;
 import com.illposed.osc.OSCBundle;
 import com.illposed.osc.OSCMessage;
 import com.illposed.osc.OSCPortOut;
+import com.transfer.model.MsgCommand;
 
-import java.net.*;
-import java.util.Date;
-import java.util.Scanner;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 
 public class Server {
     public static void main(String[] args) throws Exception{
@@ -35,9 +35,9 @@ public class Server {
         msgCommand.setTargetIp("");
         msgCommand.setType(0);
         msgCommand.setDataCommand("");
-        JacksonUtil.toJson(msgCommand);
-        byte[] bytes = JacksonUtil.toJson(msgCommand).getBytes();
-        message.addArgument(JacksonUtil.toJson(msgCommand));
+//        JacksonUtil.toJson(msgCommand);
+//        byte[] bytes = JacksonUtil.toJson(msgCommand).getBytes();
+//        message.addArgument(JacksonUtil.toJson(msgCommand));
         //给箱子套上一个保护袋
         OSCBundle pack = new OSCBundle();
         pack.addPacket(message);
@@ -74,9 +74,9 @@ public class Server {
         msgCommand.setMsgSerial(526325055098064896L);
 
         msgCommand.setDataCommand("我是osc 发送端");
-        JacksonUtil.toJson(msgCommand);
+      /*  JacksonUtil.toJson(msgCommand);
         byte[] bytes = JacksonUtil.toJson(msgCommand).getBytes();
-        message.addArgument(JacksonUtil.toJson(msgCommand));
+        message.addArgument(JacksonUtil.toJson(msgCommand));*/
         //给箱子套上一个保护袋
         OSCBundle pack = new OSCBundle();
 
@@ -106,9 +106,9 @@ public class Server {
         msgCommand.setTargetIp("192.168.100.255");
         msgCommand.setType(0);
         msgCommand.setDataCommand("我是osc 发送端");
-        JacksonUtil.toJson(msgCommand);
+      /*  JacksonUtil.toJson(msgCommand);
         byte[] bytes = JacksonUtil.toJson(msgCommand).getBytes();
-        message.addArgument(JacksonUtil.toJson(msgCommand));
+        message.addArgument(JacksonUtil.toJson(msgCommand));*/
         //给箱子套上一个保护袋
         OSCBundle pack = new OSCBundle();
         pack.addPacket(message);
