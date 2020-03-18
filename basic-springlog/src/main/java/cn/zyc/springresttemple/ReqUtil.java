@@ -1,11 +1,18 @@
 package cn.zyc.springresttemple;
 
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustStrategy;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+import javax.net.ssl.SSLContext;
+import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,8 +59,32 @@ public class ReqUtil {
 
         param.put("a1","a");
         param.put("b1","a");
-        RestTemplate template = new RestTemplate();
+        RestTemplate template =null; //http
+        if("http".equals("http")){
+            template = new RestTemplate(); //http
+        }else {//https
+            TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
 
+            SSLContext sslContext = null;
+            try {
+                sslContext = org.apache.http.ssl.SSLContexts.custom()
+                        .loadTrustMaterial(null, acceptingTrustStrategy)
+                        .build();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext);
+
+            CloseableHttpClient httpClient = HttpClients.custom()
+                    .setSSLSocketFactory(csf)
+                    .build();
+
+            HttpComponentsClientHttpRequestFactory requestFactory =
+                    new HttpComponentsClientHttpRequestFactory();
+
+            requestFactory.setHttpClient(httpClient);
+            template = new RestTemplate(requestFactory);
+        }
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setAll(head);
         HttpEntity requestEntity = new HttpEntity(param,requestHeaders);
