@@ -9,9 +9,18 @@ package cn.zyc.jvm;
  *
  */
 public class Test {
-    static int i;
+    static Integer i;
+
+    Integer aa;
 
     public static void main(String[] args) {
         System.out.println(i);
+        int i = Test.i + 1;
     }
+
+    public void t(){
+        System.out.println(aa);
+
+        aa+=1;
+    }//静态不能访问费静态  非静态可以访问静态
 }
