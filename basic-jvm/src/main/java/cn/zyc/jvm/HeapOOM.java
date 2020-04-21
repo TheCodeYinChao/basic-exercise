@@ -1,5 +1,8 @@
 package cn.zyc.jvm;
 
+import lombok.SneakyThrows;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +26,14 @@ public class HeapOOM {
 
             list.add(new OOMObject());
         }
+    }
+    @SneakyThrows(UnsupportedEncodingException.class)
+    public String utf8ToString(byte[] bytes) {
+        return new String(bytes,"UTF-8");
+    }
+
+    @SneakyThrows
+    public void run() {
+        throw new Throwable();
     }
 }
