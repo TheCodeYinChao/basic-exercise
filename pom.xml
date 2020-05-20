@@ -27,6 +27,7 @@
         <module>basic-soundcode</module>
         <module>cos-ws</module>
         <module>basic-springlog</module>
+        <module>jvm</module>
     </modules>
 
     <properties>
