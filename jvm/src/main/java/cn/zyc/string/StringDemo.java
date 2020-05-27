@@ -6,6 +6,13 @@ package cn.zyc.string;
  * author: zyc <br>
  * version: 1.0 <br>
  *  <a href="https://blog.csdn.net/qq_34490018/article/details/82110578">链接博客</a>
+ *
+ *
+ *  这里面涉及到一个值传递和引用传递的例子结论
+ *（ 1）基本数据类型传值，对形参的修改不会影响实参；
+ * （2）引用类型传引用，形参和实参指向同一个内存地址（同一个对象），所以对参数的修改会影响到实际的对象；
+ * （3）String, Integer, Double等immutable的类型特殊处理，可以理解为传值，最后的操作不会修改实参对象。
+ *
  */
 public class StringDemo {
     public static void main(String[] args) {
@@ -43,6 +50,7 @@ public class StringDemo {
 
         String s6="1"+"2"+new String("1")+"2";
         System.out.println(s5 == s6);//false
+        System.out.println(s4 == s6);//false s6 不是常量池的地址
 
         /**
          *  s6 当使用“+”连接字符串中含有变量时，也是在运行期才能确定的。
