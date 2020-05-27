@@ -11,13 +11,17 @@ public class ArrayDemo {
     public static void main(String[] args)throws Exception {
 //        int[] a = new int[100000000];
 
-//        A[] a1 = new A[100000000];
+        A[] a1 = new A[100000000];
+        A a = new A();
+        a1[0] =a;
 
         Thread.sleep(1000000);
 
     }
 
-    class A{
+    static class A{
+        int [] a = new int[100000000];
+        A [] a1 = new A[100000000];
 
 
     }
