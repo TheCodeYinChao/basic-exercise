@@ -28,6 +28,7 @@
         <module>cos-ws</module>
         <module>basic-springlog</module>
         <module>jvm</module>
+        <module>basic-hystrix</module>
     </modules>
 
     <properties>
