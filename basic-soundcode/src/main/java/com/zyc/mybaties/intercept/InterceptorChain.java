@@ -20,7 +20,9 @@ public class InterceptorChain {
     public static void main(String[] args) {
         List<Intercept> interceptors = new ArrayList<Intercept>();
         Intercept logInterceptor = new IntercepterImpl();
+        Intercept logInterceptor1 = new IntercepterImpl1();
         interceptors.add(logInterceptor);
+        interceptors.add(logInterceptor1);
         InterceptorChain interceptorChain = new InterceptorChain(interceptors);
 
         Target target = new TargetImpl();

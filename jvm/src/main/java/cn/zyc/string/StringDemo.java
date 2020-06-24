@@ -48,7 +48,7 @@ public class StringDemo {
          * s5 使用包含常量的字符串连接创建是也是常量，编译期就能确定了，直接入字符串常量池，当然同样需要判断是否已经存在该字符串
          */
 
-        String s6="1"+"2"+new String("1")+"2";
+        String s6 = "1"+"2"+new String("1")+"2";
         System.out.println(s5 == s6);//false
         System.out.println(s4 == s6);//false s6 不是常量池的地址
 
@@ -70,18 +70,47 @@ public class StringDemo {
         System.out.println(s5 == s7);//true
 
 
+        String S9 ="11";
+
         String s8 = new String("1") + new String("1");
 
-        System.out.println(s8 == s8.intern()); //1.6 false 1.7 true
+//        System.out.println(s8 == s8.intern()); //1.6 false 1.7 true
+
+
+        System.out.println(System.identityHashCode(s8));
+        System.out.println(System.identityHashCode(S9));
+
+        System.out.println(S9 == s8);//false
+
+        System.out.println(S9 == s8.intern()); //1.6 false 1.7 true
         /**
          * JDK6中的常量池是放在永久代的，永久代和Java堆是两个完全分开的区域。而存在变量使用“+”连接而来的的对象存在Java堆中，
          * 且并未将对象存于常量池中，当调用 intern 方法时，如果常量池中已经该字符串，则返回池中的字符串；
          * 否则将此字符串添加到常量池中，并返回字符串的引用。所以结果为false。
          *
          *JDK7中，字符串常量池已经被转移至Java堆中，开发人员也对intern 方法做了一些修改。
-         * 因为字符串常量池和new的对象都存于Java堆中，为了优化性能和减少内存开销，当调用 intern 方法时，
-         * 如果常量池中已经存在该字符串，则返回池中字符串；否则直接存储堆中的引用，也就是字符串常量池中存储的是指向堆里的对象。
+         * 因为字符串常量池和new的对象都存于Java堆中，为了优化性能和减少内存开销，
+         *
+         * 当调用 intern 方法时，
+         * 如果常量池中已经存在该字符串，则返回池中字符串；
+         *
+         * 否则直接存储堆中的引用，也就是字符串常量池中存储的是指向堆里的对象。
          * 所以结果为true
+         *
+         * 注意 对象：和常量的不同
+         *
+         * 对象内存的常量池布局问题
+         *
+         * 正常池中 stringTable 对象
+         *
+         * 引用池中的对象
+         *
+         * 有待验证  关于 对象存储的 引用 与非对象存储的引用之前的不同
+         *
+         *
+         *
+         *
+         *
          *
          *
          */
