@@ -13,7 +13,7 @@ public class Test1 {
         /**
          * 1. 下面操作 n创建了多少个对象
          */
-//        String str = new String("a") + new String("b");
+        String str = new String("a") + new String("b");
 
         /**
          * 2. 执行下面语句会打印什么
