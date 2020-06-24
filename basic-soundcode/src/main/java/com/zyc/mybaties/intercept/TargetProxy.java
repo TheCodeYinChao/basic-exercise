@@ -25,7 +25,7 @@ public class TargetProxy implements InvocationHandler {
         Invocation invocation = new Invocation(target,method,args);
         System.out.println("代理类");
         this.list.forEach(x->
-                x.interce(invocation)
+                x.interce(invocation)//执行拦截
         );
 
         return method.invoke(target,args);
