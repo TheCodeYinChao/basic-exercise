@@ -54,7 +54,7 @@ public class TestSqlSession {
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        List<Map> rs = mapper.selectList();
+        List<User> rs = mapper.selectList();
         System.out.println(rs.toString());
 
     }

@@ -10,5 +10,5 @@ import java.util.Map;
  */
 public interface UserMapper {
     @Select("select * from user")
-    List<Map> selectList();
+    List<User> selectList();
 }
