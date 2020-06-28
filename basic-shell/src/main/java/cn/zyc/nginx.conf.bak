@@ -1,0 +1,5 @@
+upstream file {
+        ip_hash;
+        server 172.21.0.9:8604;
+        server 172.21.0.13:8604;
+    }
