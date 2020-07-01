@@ -29,6 +29,8 @@ import java.util.Map;
 
 /**
  * Created by Admin on 2019/12/22.
+ *
+ * 二级缓存 必须提交之后才会清楚 因为有事务  通过暂存区解决
  */
 
 //@MapperScan
@@ -54,7 +56,7 @@ public class TestSqlSession {
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        List<User> rs = mapper.selectList();
+        List<User> rs = mapper.selectList(1);
         System.out.println(rs.toString());
 
     }
