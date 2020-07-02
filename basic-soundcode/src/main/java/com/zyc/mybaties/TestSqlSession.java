@@ -1,6 +1,7 @@
 package com.zyc.mybaties;
 
 
+import org.apache.ibatis.cache.Cache;
 import org.apache.ibatis.cache.decorators.BlockingCache;
 import org.apache.ibatis.cache.decorators.LruCache;
 import org.apache.ibatis.cache.decorators.ScheduledCache;
@@ -10,6 +11,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.logging.stdout.StdOutImpl;
+import org.apache.ibatis.mapping.CacheBuilder;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -67,10 +69,12 @@ public class TestSqlSession {
      */
     @Test
     public void decoratorpattem(){
-        LruCache lruCache = new LruCache(new BlockingCache(new ScheduledCache(new PerpetualCache("1"))));
-        lruCache.setSize(1);
-        lruCache.putObject("aa","aa");
-        lruCache.putObject("a2","aa");
+        CacheBuilder c = new CacheBuilder("TEST");
+        c.clearInterval((long) 6000);//缓存存活时间
+        c.readWrite(true);//序列化
+        Cache cache = c.build();
+        cache.putObject("test","ceshi");
+        System.out.println(cache.getObject("test"));
     }
 
 
