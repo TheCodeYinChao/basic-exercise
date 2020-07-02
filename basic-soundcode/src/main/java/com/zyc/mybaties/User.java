@@ -2,12 +2,14 @@ package com.zyc.mybaties;
 
 import org.apache.ibatis.type.Alias;
 
+import java.io.Serializable;
+
 /**
  * Created by Admin on 2020/6/26.
  */
 
 @Alias("user")
-public class User {
+public class User implements Serializable {
     private Integer id;
     private String name;
 

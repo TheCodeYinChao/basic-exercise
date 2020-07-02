@@ -22,6 +22,7 @@ import org.junit.Test;
 import org.mybatis.spring.annotation.MapperScan;
 
 import java.awt.*;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
@@ -33,10 +34,25 @@ import java.util.Map;
  * Created by Admin on 2019/12/22.
  *
  * 二级缓存 必须提交之后才会清楚 因为有事务  通过暂存区解决
+ *
+ *
+ *  更新 会导致 一级和二级缓存都失效
  */
 
-//@MapperScan
 public class TestSqlSession {
+    private static final SqlSessionFactory sqlSessionFactory;
+    static {//实例化工厂
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream("mybaties.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+        sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
+        sqlSessionFactory.getConfiguration().addInterceptor(new DemoPlugin());
+        sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
+    }
 
     /**
      * 测试sql 查询
@@ -44,23 +60,14 @@ public class TestSqlSession {
      */
     @Test
     public void testSqlSession()throws Exception{
-
-//        LogFactory
-
         //二级缓存 sqlsession
-        InputStream inputStream = Resources.getResourceAsStream("mybaties.xml");
+            SqlSession sqlSession = sqlSessionFactory.openSession();
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-        SqlSessionFactory build = sqlSessionFactoryBuilder.build(inputStream);
-        build.getConfiguration().addInterceptor(new DemoPlugin());
-        SqlSession sqlSession = build.openSession();
-        sqlSession.getConfiguration().addMapper(UserMapper.class);
-
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-
-        List<User> rs = mapper.selectList(1);
-        System.out.println(rs.toString());
-
+            List<User> rs = mapper.selectList(1);
+//            sqlSession.commit();//会话提交后缓存才能生效
+            List<User> rs1 = mapper.selectList(1);
+            System.out.println(rs.toString());
     }
 
 
