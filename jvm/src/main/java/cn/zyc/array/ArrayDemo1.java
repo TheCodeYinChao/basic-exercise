@@ -12,6 +12,9 @@ package cn.zyc.array;
  */
 public class ArrayDemo1 {
     public static void main(String[] args) {
+        int[] I = new int[-1];
+
+
         int[] a = new int[100000];
         long[] a2 = new long[2];
         double[] a3 = new double[2];
