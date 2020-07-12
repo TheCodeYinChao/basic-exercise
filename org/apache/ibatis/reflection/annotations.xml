@@ -1,0 +1,5 @@
+<root>
+    <item name='org.apache.ibatis.reflection.SystemMetaObject SystemMetaObject()'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

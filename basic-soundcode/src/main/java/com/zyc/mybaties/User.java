@@ -3,6 +3,8 @@ package com.zyc.mybaties;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Admin on 2020/6/26.
@@ -12,6 +14,15 @@ import java.io.Serializable;
 public class User implements Serializable {
     private Integer id;
     private String name;
+    private List<User> user;
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;
