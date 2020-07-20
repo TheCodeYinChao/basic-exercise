@@ -34,7 +34,7 @@ import java.util.Map;
  * Created by Admin on 2019/12/22.
  *
  * 二级缓存（mapper - namespace） 必须提交之后才会清除 因为有事务  通过暂存区解决
- *
+ * <a href="https://www.cnblogs.com/zhjh256/p/8512392.html">博客链接</a>
  *
  *  更新 删除 新增 会导致 一级和二级缓存都失效
  */
