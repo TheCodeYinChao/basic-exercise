@@ -33,10 +33,10 @@ import java.util.Map;
 /**
  * Created by Admin on 2019/12/22.
  *
- * 二级缓存 必须提交之后才会清除 因为有事务  通过暂存区解决
+ * 二级缓存（mapper - namespace） 必须提交之后才会清除 因为有事务  通过暂存区解决
  *
  *
- *  更新 会导致 一级和二级缓存都失效
+ *  更新 删除 新增 会导致 一级和二级缓存都失效
  */
 
 public class TestSqlSession {
@@ -65,7 +65,7 @@ public class TestSqlSession {
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
             List<User> rs = mapper.selectList(1);
-//            sqlSession.commit();//会话提交后缓存才能生效
+            sqlSession.commit();//会话提交后缓存才能生效
             List<User> rs1 = mapper.selectList(1);
             System.out.println(rs.toString());
     }
