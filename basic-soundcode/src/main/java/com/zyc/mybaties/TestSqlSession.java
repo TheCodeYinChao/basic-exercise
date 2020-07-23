@@ -38,6 +38,9 @@ import java.util.Map;
  *
  * <a href="https://www.cnblogs.com/UYGHYTYH/p/13111118.html">关于 mybatis循环依赖问题</a>
  *
+ *
+ * <a href="http://www.mybatis.cn/726.html">插件</a>
+ *
  *  更新 删除 新增 会导致 一级和二级缓存都失效
  */
 
