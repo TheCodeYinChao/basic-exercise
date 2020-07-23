@@ -22,4 +22,8 @@
         </environment>
 
     </environments>
+
+    <mappers>
+        <mapper resource="com/zyc/mybaties/UserMapper.xml"></mapper>
+    </mappers>
 </configuration>
