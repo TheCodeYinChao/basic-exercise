@@ -17,4 +17,11 @@ public interface UserMapper {
     @Select("select * from user where id =#{id}")
     @Options(useCache = true)//这个默认就是true
     List<User> selectList(@Value("id")Integer id);
+
+
+    @Select("select * from user")
+    List<User> selectALL();
+
+
+    int insertUser(User user);
 }

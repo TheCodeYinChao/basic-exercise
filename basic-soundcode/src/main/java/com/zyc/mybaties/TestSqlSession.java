@@ -38,6 +38,9 @@ import java.util.Map;
  *
  * <a href="https://www.cnblogs.com/UYGHYTYH/p/13111118.html">关于 mybatis循环依赖问题</a>
  *
+ *
+ * <a href="http://www.mybatis.cn/726.html">插件</a>
+ *
  *  更新 删除 新增 会导致 一级和二级缓存都失效
  */
 
@@ -53,7 +56,7 @@ public class TestSqlSession {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
         sqlSessionFactory.getConfiguration().addInterceptor(new DemoPlugin());
-        sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
+//        sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
 //        sqlSessionFactory.getConfiguration().addMappers("com.zyc.mybaties");
     }
 
@@ -71,6 +74,25 @@ public class TestSqlSession {
             sqlSession.commit();//会话提交后缓存才能生效
             List<User> rs1 = mapper.selectList(1);
             System.out.println(rs.toString());
+    }
+
+
+    /**
+     * 测试sql 新增
+     * @throws Exception
+     */
+    @Test
+    public void insert()throws Exception{
+        //二级缓存 sqlsession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User us = new User();
+        us.setName("zyddaac");
+        int rs = mapper.insertUser(us);
+        sqlSession.rollback();
+        List<User> rs1 = mapper.selectALL();
+        System.out.println(rs1.toString());
+
     }
 
 
