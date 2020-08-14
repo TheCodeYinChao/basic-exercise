@@ -1,6 +1,8 @@
 package com.zyc.spring.event;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Component;
  * version: 1.0 <br>
  */
 @Component
+//@Async
 public class BookingEventsListener implements ApplicationListener<HelloWorldEvent> {
 
     //listener实现
@@ -17,5 +20,11 @@ public class BookingEventsListener implements ApplicationListener<HelloWorldEven
         //do something
         System.out.println("com.zyc.spring.event.BookingEventsListener.onApplicationEvent");
     }
+
+
+//    @EventListener(HelloWorldEvent.class)
+//    public void lister(HelloWorldEvent event){
+//        System.out.println(event);
+//    }
 
 }
