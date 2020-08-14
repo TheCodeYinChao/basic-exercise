@@ -1,5 +1,7 @@
 package com.zyc.spring;
 
+import com.zyc.spring.event.Booking;
+import com.zyc.spring.event.JpaBookingService;
 import com.zyc.spring.factorypostprocess.MyFactoryPostProcess;
 import com.zyc.spring.importmy.ImPortBena;
 import com.zyc.spring.importmy.RegistryBean;
@@ -7,6 +9,12 @@ import com.zyc.spring.postprocess.Demo;
 import org.junit.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.event.ApplicationEventMulticaster;
+import org.springframework.context.event.SimpleApplicationEventMulticaster;
+
+import java.util.concurrent.Executors;
+
+import static org.springframework.context.support.AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME;
 
 /**
  * spring
@@ -67,5 +75,23 @@ public class TestDemoSpring {
         bm.list();
         RegistryBean rb = (RegistryBean)configApplicationContext.getBean("aa");
         rb.list();
+    }
+
+
+    @Test
+    public void springEvent() throws Exception {
+        AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        /**组播时间 添加 线程池使其可以异步*/
+        SimpleApplicationEventMulticaster bean = (SimpleApplicationEventMulticaster)configApplicationContext.getBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME);
+        bean.setTaskExecutor(Executors.newSingleThreadExecutor());
+
+        JpaBookingService rb = (JpaBookingService)configApplicationContext.getBean("bookingService");
+
+        rb.setApplicationContext(configApplicationContext);
+        Booking b = new Booking();
+        b.setId("adfaqew21321fasdqw5r1");
+
+        rb.persistBooking(b);
     }
 }
