@@ -1,0 +1,23 @@
+1 org.mybatis.spring.annotation.MapperScannerRegistrar#registerBeanDefinitions(org.springframework.core.type.AnnotationMetadata, org.springframework.beans.factory.support.BeanDefinitionRegistry)
+
+	解析注解值
+	 AnnotationAttributes mapperScanAttrs = AnnotationAttributes
+        .fromMap(importingClassMetadata.getAnnotationAttributes(MapperScan.class.getName()));
+		
+		
+	2 注册spring bd
+		构建spring类的工具
+		BeanDefinitionBuilder
+		3 拿到basePackes
+		 4 将 org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor后置处理器添加到springbd 定义中去
+		 
+		 完毕
+		 
+当spring初始化类的时候会执行  BeanDefinitionRegistryPostProcessor后置处理器 将相关的spring mapperproxy 放入容器中去
+	
+									org.springframework.context.annotation.ClassPathBeanDefinitionScanner#scan 扫描相关包 执行完之后会把接口bd放入容器.
+
+
+									然后将mapper 接口 改成了MapperFactoryBean
+                                    		org.mybatis.spring.mapper.ClassPathMapperScanner#processBeanDefinitions
+		 
