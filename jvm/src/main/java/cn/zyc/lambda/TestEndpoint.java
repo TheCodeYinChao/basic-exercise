@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -92,4 +93,12 @@ public class TestEndpoint {
                 .reduce(0, (acc, element) -> acc + element);
         assertEquals(6, count);
     }
+
+    @Test
+    public void Optional(){
+        Optional<String> a = Optional.of("a");
+        assertEquals("a", a.get());
+    }
+
+    /**并行化 要数据足够大才能体现出来  否则 比串行化 更耗费性能*/
 }
