@@ -242,7 +242,7 @@ public class Demo {
         /**
          * myObservableServices.retrieveImage(url)
          *     .subscribeOn(Schedulers.io())//指定观察者运行线程
-         *     .observeOn(AndroidSchedulers.mainThread())//指定订阅者运行的线程：
+         *     .observeOn(AndroidSchedulers.mainThread())//指定订阅者运行的线程：AndroidSchedulers这个只针对安卓的线程调度器 这里只是个例子
          *     .subscribe(bitmap -> myImageView.setImageBitmap(bitmap));
          */
     }

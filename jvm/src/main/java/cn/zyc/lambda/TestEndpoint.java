@@ -101,4 +101,23 @@ public class TestEndpoint {
     }
 
     /**并行化 要数据足够大才能体现出来  否则 比串行化 更耗费性能*/
+
+
+
+
+
+
+
+
+
+
+    @Test
+    public void flatMap(){
+        List<Integer> together = Stream.of(asList(1, 2), asList(3, 4))
+                .flatMap(numbers -> {
+                    return numbers.stream();
+                })
+                .collect(toList());
+        assertEquals(asList(1, 2, 3, 4), together);
+    }
 }
