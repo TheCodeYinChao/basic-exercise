@@ -11,6 +11,8 @@ public class UseTest {
     public static void main(String[] args) {
         Subject1 subject = new Subject1();
         Observer observer = new Observer1(subject);
+
+
         subject.setMsg("测试");
     }
 }

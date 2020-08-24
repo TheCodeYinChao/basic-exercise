@@ -8,10 +8,8 @@ package cn.zyc.observer;
  * Description:
  */
 public class Observer1 implements Observer {
-    private Subject subject;
 
     public Observer1(Subject subject) {
-        this.subject = subject;
         subject.registerObserver(this);
     }
 
