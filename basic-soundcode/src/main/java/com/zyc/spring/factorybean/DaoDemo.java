@@ -5,7 +5,7 @@ package com.zyc.spring.factorybean;
  */
 public class DaoDemo {
 
-    public void test(){
+    public void test() {
         System.out.println("测试 daodemo");
     }
 }

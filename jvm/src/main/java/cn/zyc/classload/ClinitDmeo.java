@@ -5,11 +5,11 @@ package cn.zyc.classload;
  * date: 2020/5/20 17:24 <br>
  * author: zyc <br>
  * version: 1.0 <br>
- *
+ * <p>
  * 初始化的 的作用其实就是执行 <clinit>
- *     1子类执行时 先执行父类的<clinit>
- *
- *     2 接口则不会
+ * 1子类执行时 先执行父类的<clinit>
+ * <p>
+ * 2 接口则不会
  */
 public class ClinitDmeo {
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class ClinitDmeo {
 
        /* Integer a = A.a;
         System.out.println(a); //A - A   1*/
-        A a  = new  A();
+        A a = new A();
         //静态块 --- 代码块 ---属性  ----构造方法
         // 父类的静态代码块->子类的静态代码块->
         // 初始化父类的属性值/父类的普通代码块(自上而下的顺序排列)->父类的构造方法->
@@ -30,7 +30,7 @@ public class ClinitDmeo {
 
 }
 
-class A{
+class A {
     public A() {
         System.out.println("构造A");
     }
@@ -40,19 +40,22 @@ class A{
     }
 
     public static Integer a = 1;
+
     static {
         System.out.println("A - A");
     }
 }
 
-class B extends A{
+class B extends A {
     public B() {
         System.out.println("构造B");
     }
+
     static {
         System.out.println("B - B");
     }
-    public static Integer b =2;
+
+    public static Integer b = 2;
 }
 
 

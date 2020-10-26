@@ -2,6 +2,7 @@ package cn.zyc.死锁;
 
 /**
  * 死锁
+ *
  * @author qhy
  * @description
  * @createTime: 2020/5/28
@@ -20,18 +21,19 @@ public class DeadLockDemo {
         t2.start();
     }
 
-    static class TransferThread extends Thread{
+    static class TransferThread extends Thread {
         private final UserAccount from;
         private final UserAccount to;
         private final double amount;
         private final ITransfer transfer;
 
-        public TransferThread(UserAccount from,UserAccount to,double amount,ITransfer transfer) {
+        public TransferThread(UserAccount from, UserAccount to, double amount, ITransfer transfer) {
             this.from = from;
             this.to = to;
             this.amount = amount;
             this.transfer = transfer;
         }
+
         @Override
         public void run() {
             try {

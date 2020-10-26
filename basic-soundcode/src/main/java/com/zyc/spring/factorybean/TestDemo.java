@@ -11,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class TestDemo {
 
     @Test
-    public void testFactoryBean(){
+    public void testFactoryBean() {
         AnnotationConfigApplicationContext configApplicationContext = new AnnotationConfigApplicationContext("com.zyc.*.**");
         //DemoFacctoryBean facctoryBean = (DemoFacctoryBean) configApplicationContext.getBean("demoBean");
         //java.lang.ClassCastException

@@ -12,11 +12,11 @@ public class Demo {
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         System.out.println("init");
     }
 
-    public void query(){
+    public void query() {
         System.out.println("query..");
     }
 }

@@ -42,7 +42,9 @@ public class Snowflake {
      */
     private long sequence = 0L;
 
-    /** 上次执行生成 ID 方法的时间戳 */
+    /**
+     * 上次执行生成 ID 方法的时间戳
+     */
     private long lastTimestamp = -1L;
 
     /*

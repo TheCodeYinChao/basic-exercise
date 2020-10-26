@@ -32,7 +32,7 @@ import java.util.Map;
 
 /**
  * Created by Admin on 2019/12/22.
- *
+ * <p>
  * 二级缓存（mapper - namespace） 必须提交之后才会清除 因为有事务  通过暂存区解决
  * <a href="https://www.cnblogs.com/zhjh256/p/8512392.html">博客链接</a>
  *
@@ -40,12 +40,13 @@ import java.util.Map;
  *
  *
  * <a href="http://www.mybatis.cn/726.html">插件</a>
- *
- *  更新 删除 新增 会导致 一级和二级缓存都失效
+ * <p>
+ * 更新 删除 新增 会导致 一级和二级缓存都失效
  */
 
 public class TestSqlSession {
     private static final SqlSessionFactory sqlSessionFactory;
+
     static {//实例化工厂
         InputStream inputStream = null;
         try {
@@ -62,27 +63,29 @@ public class TestSqlSession {
 
     /**
      * 测试sql 查询
+     *
      * @throws Exception
      */
     @Test
-    public void testSqlSession()throws Exception{
+    public void testSqlSession() throws Exception {
         //二级缓存 sqlsession
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-            List<User> rs = mapper.selectList(1);
-            sqlSession.commit();//会话提交后缓存才能生效
-            List<User> rs1 = mapper.selectList(1);
-            System.out.println(rs.toString());
+        List<User> rs = mapper.selectList(1);
+        sqlSession.commit();//会话提交后缓存才能生效
+        List<User> rs1 = mapper.selectList(1);
+        System.out.println(rs.toString());
     }
 
 
     /**
      * 测试sql 新增
+     *
      * @throws Exception
      */
     @Test
-    public void insert()throws Exception{
+    public void insert() throws Exception {
         //二级缓存 sqlsession
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
@@ -100,12 +103,12 @@ public class TestSqlSession {
      * 缓存装饰模式
      */
     @Test
-    public void decoratorpattem(){
+    public void decoratorpattem() {
         CacheBuilder c = new CacheBuilder("TEST");
         c.clearInterval((long) 6000);//缓存存活时间
         c.readWrite(true);//序列化
         Cache cache = c.build();
-        cache.putObject("test","ceshi");
+        cache.putObject("test", "ceshi");
         System.out.println(cache.getObject("test"));
     }
 
@@ -114,10 +117,10 @@ public class TestSqlSession {
      * 缓存信息
      */
     @Test
-    public void gcTest(){
+    public void gcTest() {
 
         WeakCache weakCache = new WeakCache(new PerpetualCache("11"));
-        weakCache.putObject("aa","aad");
+        weakCache.putObject("aa", "aad");
 
 
         ReferenceQueue<Object> objectReferenceQueue = new ReferenceQueue<Object>(); //回收引用队列
@@ -130,9 +133,9 @@ public class TestSqlSession {
             @Override
             public void run() {
                 WeakReference<Object> poll;
-                while ((poll = (WeakReference<Object>)objectReferenceQueue.poll()) !=null){
+                while ((poll = (WeakReference<Object>) objectReferenceQueue.poll()) != null) {
                     Object o1 = poll.get();
-                    System.out.println("o1:"+o1);
+                    System.out.println("o1:" + o1);
                 }
             }
         });
@@ -144,7 +147,7 @@ public class TestSqlSession {
     }
 
     @Test
-    public void logFactory(){
+    public void logFactory() {
         //单例 适配器  工厂
         System.out.println(LogFactory.class.getName());
         Log log = LogFactory.getLog(StdOutImpl.class);
@@ -159,10 +162,8 @@ public class TestSqlSession {
     }
 
 
-
-
     @Test
-    public  void logger(){
+    public void logger() {
         Logger logger = Logger.getLogger(this.getClass());
         logger.setLevel(Level.DEBUG);
         logger.debug("aa");

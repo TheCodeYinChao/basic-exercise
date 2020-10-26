@@ -9,8 +9,8 @@ public class SynchronizedDemo4 {
 
     LinkedList list = new LinkedList();
 
-    public  synchronized void push(Object x){
-        synchronized (list){
+    public synchronized void push(Object x) {
+        synchronized (list) {
             System.out.println("准备唤醒");
             notify();
 
@@ -20,12 +20,12 @@ public class SynchronizedDemo4 {
         }
     }
 
-    public  synchronized Object pop() throws Exception{
+    public synchronized Object pop() throws Exception {
         System.out.println("方法阻塞");
 
         System.out.println("方法阻塞结束");
-        synchronized(list){
-            if(list.size() <= 0){
+        synchronized (list) {
+            if (list.size() <= 0) {
                 list.wait();
                 System.out.println("方法阻塞2");
 //                wait();

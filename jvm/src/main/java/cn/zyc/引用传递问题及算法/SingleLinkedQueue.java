@@ -267,8 +267,8 @@ public class SingleLinkedQueue {
 
 
     public void reversal3() {
-       Student first  = this.first;
-        while (first.next != null){
+        Student first = this.first;
+        while (first.next != null) {
             first = first.next;
         }
     }
@@ -284,7 +284,7 @@ public class SingleLinkedQueue {
             if (s.next == null) {
                 ne = first.next;
 //                ne = s.next;
-                s.next =ne;
+                s.next = ne;
             } else {
 //                ne = s.next;
                 //这块明显有问题

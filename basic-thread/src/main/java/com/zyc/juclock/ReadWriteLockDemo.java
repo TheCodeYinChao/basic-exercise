@@ -5,14 +5,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 锁：读读互斥  读写互斥 写写互斥
- *
+ * <p>
  * 读写锁 读读共享 读写互斥 写写互斥
- *
  */
 public class ReadWriteLockDemo {
-    private static  ReentrantReadWriteLock lock = new  ReentrantReadWriteLock();
+    private static ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
-    
+
     public static void main(String[] args) {
         ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
 

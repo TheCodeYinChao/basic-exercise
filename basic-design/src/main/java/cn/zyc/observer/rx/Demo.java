@@ -19,7 +19,7 @@ public class Demo {
      * 基础写法
      */
     @Test
-    public  void test(){
+    public void test() {
 
 
         Observable<String> objectObservable = Observable.create(
@@ -34,13 +34,17 @@ public class Demo {
 
         Subscriber<String> mySubscriber = new Subscriber<String>() {
             @Override
-            public void onNext(String s) { System.out.println(s); }
+            public void onNext(String s) {
+                System.out.println(s);
+            }
 
             @Override
-            public void onCompleted() { }
+            public void onCompleted() {
+            }
 
             @Override
-            public void onError(Throwable e) { }
+            public void onError(Throwable e) {
+            }
 
         };
 
@@ -51,7 +55,7 @@ public class Demo {
      * 变种写法一
      */
     @Test
-    public  void test1(){
+    public void test1() {
 
 
         Observable<String> objectObservable = Observable.create(
@@ -86,14 +90,14 @@ public class Demo {
             }
         };
 
-        objectObservable.subscribe(onNextAction,e,onCompleted);
+        objectObservable.subscribe(onNextAction, e, onCompleted);
     }
 
     /**
      * jdk 简化写法
      */
     @Test
-    public  void test2Jdk8(){
+    public void test2Jdk8() {
         Observable.just("Hello, world!")
                 .subscribe(s -> System.out.println(s));
     }
@@ -101,10 +105,10 @@ public class Demo {
     /**************  操作符（Operators）************************/
 
     /**
-     *一个事件转换为另一个事件 map
+     * 一个事件转换为另一个事件 map
      */
     @Test
-    public void map(){
+    public void map() {
 
         /**
          * 1 为普通版rx java 的使用
@@ -124,7 +128,7 @@ public class Demo {
                 .subscribe(s -> System.out.println(s));
         //2
         Observable.just("Hello, world!")
-                .map(s->  s + " -Dan")
+                .map(s -> s + " -Dan")
                 .subscribe(s -> System.out.println(s));
         //3
         Observable.just("Hello, world!")
@@ -144,26 +148,26 @@ public class Demo {
      */
 
     @Test
-    public void operFrom(){
-    /**
-     * Observable<List<String>> query(String text);
-     * query("Hello, world!")
-     *     .subscribe(urls -> {
-     *         for (String url : urls) {
-     *             System.out.println(url);
-     *         }
-     *     });
-     */
-        String [] a = {"url1", "url2", "url3"};
+    public void operFrom() {
+        /**
+         * Observable<List<String>> query(String text);
+         * query("Hello, world!")
+         *     .subscribe(urls -> {
+         *         for (String url : urls) {
+         *             System.out.println(url);
+         *         }
+         *     });
+         */
+        String[] a = {"url1", "url2", "url3"};
         Observable.from(a)
-                .map(x-> {
+                .map(x -> {
                     return x;
                 })
                 .subscribe(url -> System.out.println(url));
 
     }
 
-    public void flatMap(){
+    public void flatMap() {
         /**
          * query("Hello, world!")
          *     .flatMap(new Func1<List<String>,
@@ -218,7 +222,7 @@ public class Demo {
     }
 
     @Test
-    public  void testONcOMOnError(){
+    public void testONcOMOnError() {
         /**
          * Observable.just("Hello, world!")
          *     .map(s -> potentialException(s))
@@ -238,7 +242,7 @@ public class Demo {
 
     /******************  调度器  Subscription这个是桥梁 ***********************/
     @Test
-    public void testRe(){
+    public void testRe() {
         /**
          * myObservableServices.retrieveImage(url)
          *     .subscribeOn(Schedulers.io())//指定观察者运行线程

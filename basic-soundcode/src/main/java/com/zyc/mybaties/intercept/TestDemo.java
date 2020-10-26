@@ -8,7 +8,7 @@ public class TestDemo {
         TargetProxy targetProxy = new TargetProxy(ta);
         targetProxy.addInteceper(new IntercepterImpl());
 
-        Target waper = (Target) TargetProxy.waper(ta,targetProxy);
+        Target waper = (Target) TargetProxy.waper(ta, targetProxy);
 
         waper.execute();
     }

@@ -22,7 +22,7 @@ public class JacksonUtil {
             objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -51,7 +51,6 @@ public class JacksonUtil {
     }
 
 
-
     /**
      * 根据json串转换java对象. <br/>
      * toObj:(json,Obj). <br/>
@@ -63,7 +62,7 @@ public class JacksonUtil {
      * @since JDK 1.8
      */
     public static <T> T toObj(String jsonString, Class<T> prototype) throws Exception {
-       return (T) objectMapper.readValue(jsonString, prototype);
+        return (T) objectMapper.readValue(jsonString, prototype);
     }
 
 
@@ -78,7 +77,7 @@ public class JacksonUtil {
      * @since JDK 1.8
      */
     @SuppressWarnings("unchecked")
-    public static <T> T toList(String jsonArray, JavaType javaType)  {
+    public static <T> T toList(String jsonArray, JavaType javaType) {
         try {
             return (T) objectMapper.readValue(jsonArray, javaType);
         } catch (IOException e) {
@@ -88,9 +87,9 @@ public class JacksonUtil {
     }
 
     /**
-     *
      * json对象转换为Map. <br/>
      * toMap:(jsonMap,Map的Key泛型，Map的Value泛型). <br/>
+     *
      * @param jsonMap
      * @param keyClass
      * @param valueClass
@@ -118,7 +117,7 @@ public class JacksonUtil {
      * @author WangLZ
      * @since JDK 1.8
      */
-    public static <T> List<T> toList(String jsonArray, Class<T> beanType){
+    public static <T> List<T> toList(String jsonArray, Class<T> beanType) {
         JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, beanType);
         try {
             List<T> list = objectMapper.readValue(jsonArray, javaType);

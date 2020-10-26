@@ -10,8 +10,8 @@ public class InterceptorChain {
         this.intercepts = intercepts;
     }
 
-    public Object registerAll(Object target){
-        for(Intercept intercept:intercepts){
+    public Object registerAll(Object target) {
+        for (Intercept intercept : intercepts) {
             target = intercept.register(target);
         }
         return target;
@@ -26,7 +26,7 @@ public class InterceptorChain {
         InterceptorChain interceptorChain = new InterceptorChain(interceptors);
 
         Target target = new TargetImpl();
-        target= (Target)interceptorChain.registerAll(target);
+        target = (Target) interceptorChain.registerAll(target);
         target.execute();
     }
 }

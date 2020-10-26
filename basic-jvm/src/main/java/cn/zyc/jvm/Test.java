@@ -5,8 +5,7 @@ package cn.zyc.jvm;
  * date: 2020/4/21 13:02 <br>
  * author: zyc <br>
  * version: 1.0 <br>
- *     int  0  编程 integer 是null  去掉静态报错啦
- *
+ * int  0  编程 integer 是null  去掉静态报错啦
  */
 public class Test {
     static Integer i;
@@ -18,9 +17,9 @@ public class Test {
         int i = Test.i + 1;
     }
 
-    public void t(){
+    public void t() {
         System.out.println(aa);
 
-        aa+=1;
+        aa += 1;
     }//静态不能访问费静态  非静态可以访问静态
 }

@@ -3,7 +3,7 @@ package com.zyc;
 
 class SoundcodeApplicationTests {
 
-	void contextLoads() {
-	}
+    void contextLoads() {
+    }
 
 }

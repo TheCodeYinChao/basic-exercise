@@ -16,16 +16,16 @@ public class UserAccount {
 
     private ReentrantLock lock = new ReentrantLock();
 
-    public UserAccount(String name,Double account){
+    public UserAccount(String name, Double account) {
         this.name = name;
         this.account = account;
     }
 
-    public void flyMoney(Double amount){
+    public void flyMoney(Double amount) {
         account = account - amount;
     }
 
-    public void addMoney(Double amount){
+    public void addMoney(Double amount) {
         account = account + amount;
     }
 

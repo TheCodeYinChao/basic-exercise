@@ -27,9 +27,10 @@ public class HeapOOM {
             list.add(new OOMObject());
         }
     }
+
     @SneakyThrows(UnsupportedEncodingException.class)
     public String utf8ToString(byte[] bytes) {
-        return new String(bytes,"UTF-8");
+        return new String(bytes, "UTF-8");
     }
 
     @SneakyThrows

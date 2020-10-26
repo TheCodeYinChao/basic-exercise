@@ -11,7 +11,7 @@ public class MetaObjectDemo {
         User user = new User();
         MetaObject metaObject = SystemMetaObject.forObject(user);
 
-        metaObject.setValue("id",100);
+        metaObject.setValue("id", 100);
 
         System.out.println(metaObject.getValue("id"));
 

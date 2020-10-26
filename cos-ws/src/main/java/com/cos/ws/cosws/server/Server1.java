@@ -11,16 +11,16 @@ import java.net.InetAddress;
  * version: 1.0 <br>
  */
 public class Server1 {
-    public static void main(String[] args)throws Exception {
-            DatagramSocket socket = new DatagramSocket(8888);
-            String str = "露平  我是clint端";
-            DatagramPacket packet =
-                    new DatagramPacket(str.getBytes(), str.getBytes().length, InetAddress.getByName("114.242.236.157"),8889);
-            socket.send(packet);
-            socket.setSoTimeout(3000);
-            DatagramPacket re = new DatagramPacket(new byte[1024], 1024);
-            socket.receive(re);
-            System.out.println("Received: " + new String(re.getData()));
+    public static void main(String[] args) throws Exception {
+        DatagramSocket socket = new DatagramSocket(8888);
+        String str = "露平  我是clint端";
+        DatagramPacket packet =
+                new DatagramPacket(str.getBytes(), str.getBytes().length, InetAddress.getByName("114.242.236.157"), 8889);
+        socket.send(packet);
+        socket.setSoTimeout(3000);
+        DatagramPacket re = new DatagramPacket(new byte[1024], 1024);
+        socket.receive(re);
+        System.out.println("Received: " + new String(re.getData()));
 
     }
 }

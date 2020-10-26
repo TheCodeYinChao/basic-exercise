@@ -10,16 +10,16 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {3,12,4,6,9,13,123,221,22,313,1};
+        int[] arr = {3, 12, 4, 6, 9, 13, 123, 221, 22, 313, 1};
 
         for (int i = 0; i < arr.length; i++) {
 
-            int min =arr[i];
+            int min = arr[i];
 
-            int index =i;
+            int index = i;
 
-            for (int j = i+1; j < arr.length; j++) {
-                if(min > arr[j]){
+            for (int j = i + 1; j < arr.length; j++) {
+                if (min > arr[j]) {
                     index = j;
                     min = arr[j];
                 }

@@ -13,25 +13,25 @@ public class TargetProxy implements InvocationHandler {
 
     public TargetProxy(Object target) {
         this.target = target;
-        this.list =new ArrayList<>();
+        this.list = new ArrayList<>();
     }
 
-    public  static Object waper(Object object,TargetProxy target) {
-        return Proxy.newProxyInstance(object.getClass().getClassLoader(),object.getClass().getInterfaces(),target);
+    public static Object waper(Object object, TargetProxy target) {
+        return Proxy.newProxyInstance(object.getClass().getClassLoader(), object.getClass().getInterfaces(), target);
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        Invocation invocation = new Invocation(target,method,args);
+        Invocation invocation = new Invocation(target, method, args);
         System.out.println("代理类");
-        this.list.forEach(x->
+        this.list.forEach(x ->
                 x.interce(invocation)//执行拦截
         );
 
-        return method.invoke(target,args);
+        return method.invoke(target, args);
     }
 
-    public  void addInteceper(Intercept intercept){
+    public void addInteceper(Intercept intercept) {
         this.list.add(intercept);
     }
 }

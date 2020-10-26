@@ -10,12 +10,12 @@ public class Array2Demo {
     public static void main(String[] args) {
         long sum = 0;
 
-        int [][] dataArray = new int[10000][10000];
+        int[][] dataArray = new int[10000][10000];
 
 
         for (int i = 0; i < 10000; i++) {
             for (int j = 0; j < 10000; j++) {
-                dataArray[i][j] =1;
+                dataArray[i][j] = 1;
             }
         }
 
@@ -28,7 +28,7 @@ public class Array2Demo {
         }
 
         long end = System.currentTimeMillis();
-        System.out.println("sum = " +sum+ "  time : " +(end-startTime)) ;
+        System.out.println("sum = " + sum + "  time : " + (end - startTime));
 
         sum = 0;
         for (int i = 0; i < 10000; i++) {
@@ -37,6 +37,6 @@ public class Array2Demo {
             }
         }
         long end1 = System.currentTimeMillis();
-        System.out.println("sum = " +sum+ "  time : " +(end1-end)) ;
+        System.out.println("sum = " + sum + "  time : " + (end1 - end));
     }
 }

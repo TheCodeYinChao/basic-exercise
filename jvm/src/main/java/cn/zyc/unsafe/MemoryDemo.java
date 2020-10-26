@@ -15,7 +15,7 @@ import java.lang.reflect.Field;
 public class MemoryDemo {
 
     @Test
-    public void test1()throws Exception{
+    public void test1() throws Exception {
         //1.最简单的使用方式是基于反射获取Unsafe实例
         Field f = Unsafe.class.getDeclaredField("theUnsafe");
         f.setAccessible(true);
@@ -26,7 +26,7 @@ public class MemoryDemo {
         //初始化内存填充1
         unsafe.setMemory(address, 8L, (byte) 1);
         byte aByte = unsafe.getByte(address);
-        System.out.println("add byte to memory1:" +aByte );
+        System.out.println("add byte to memory1:" + aByte);
         //测试输出
         System.out.println("add byte to memory:" + unsafe.getInt(address));
         //设置0-3 4个byte为0x7fffffff
@@ -38,14 +38,11 @@ public class MemoryDemo {
         int anInt = unsafe.getInt(address);
         System.out.println(anInt);
 
-        int anInt1 = unsafe.getInt(address+4);
+        int anInt1 = unsafe.getInt(address + 4);
         System.out.println(anInt1);
         unsafe.allocateMemory(address);
-        int anInt21 = unsafe.getInt(address+4);
+        int anInt21 = unsafe.getInt(address + 4);
         System.out.println(anInt21);
-
-
-
 
 
     }

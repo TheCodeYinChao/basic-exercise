@@ -12,7 +12,7 @@ public class ClassLoad extends ClassLoader {
         String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
 
         InputStream is = getClass().getResourceAsStream(fileName);
-        if(is == null){
+        if (is == null) {
             return super.loadClass(name);
         }
         byte[] bytes = new byte[0];
@@ -22,7 +22,7 @@ public class ClassLoad extends ClassLoader {
         } catch (IOException e) {
             throw new ClassNotFoundException(name);
         }
-        return defineClass(name,bytes,0,bytes.length);
+        return defineClass(name, bytes, 0, bytes.length);
     }
 
     public static void main(String[] args) throws Exception {

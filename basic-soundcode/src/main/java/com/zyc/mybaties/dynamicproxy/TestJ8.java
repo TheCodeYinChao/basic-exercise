@@ -5,9 +5,9 @@ import java.util.function.BiFunction;
 
 public class TestJ8 {
 
-    public int test(int a, int b, BiFunction<Integer, Integer,Integer> big){
+    public int test(int a, int b, BiFunction<Integer, Integer, Integer> big) {
 
-       return  big.apply(a,b);
+        return big.apply(a, b);
 
     }
 
