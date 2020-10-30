@@ -1,7 +1,7 @@
 package cn.zyc.sort;
 
 /**
- * description: BubblingSort  冒泡排序<br>
+ * description: IntroductionSort  冒泡排序<br>
  * date: 2020/6/19 17:05 <br>
  * author: zyc <br>
  * version: 1.0 <br>
