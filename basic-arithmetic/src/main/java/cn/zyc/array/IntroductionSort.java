@@ -17,9 +17,11 @@ public class IntroductionSort {
 
     /**
      * 冒泡排序
+     * （N-1）+（N-2）+...+1 = N^（N-1）/2 =   N^（N-1）/2
+     *  大O 表示法  O(N^2)
      */
     @Test
-    public void run(){//md，第一个就演砸啦
+    public void BubblingRun(){//md，第一个就演砸啦
         /**操作基于同一个 数组 ，第一轮则找出一个最大的放到右边 第二轮就不用管它啦*/
         for (int i = 1; i < METE_DATA.length; i++) { //比较的轮数
 
@@ -36,6 +38,31 @@ public class IntroductionSort {
         }
         arrayPring(METE_DATA);
     }
+
+    /**
+     * 选择排序
+     */
+    @Test
+    public void SelectionRun(){//md，第一个就演砸啦
+        /**操作基于同一个 数组 ，第一轮则找出一个最大的放到右边 第二轮就不用管它啦*/
+        for (int i = 1; i < METE_DATA.length; i++) { //比较的轮数
+
+            for (int j = 0; j < METE_DATA.length-i; j++) {
+                int v1 = METE_DATA[j];
+                int v2 = METE_DATA[j+1];
+                if(v1 > v2){ //交换
+                    METE_DATA[j+1] =v1;
+                    METE_DATA[j] = v2;
+
+                }
+            }
+
+        }
+        arrayPring(METE_DATA);
+    }
+
+
+
 
 
     private void arrayPring(int[] METE_DATA){
