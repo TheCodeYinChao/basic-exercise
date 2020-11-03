@@ -50,7 +50,7 @@ public class IntroductionSort {
      * 这个切入点就是 index 索引的交换
      */
     @Test
-    public void SelectionRun(){//md，第一个就演砸啦
+    public void SelectionRun(){
         /**选择排序 */
         for (int i = 0; i < METE_DATA.length-1; i++) { //比较的轮数
             int min = i;
@@ -75,13 +75,13 @@ public class IntroductionSort {
      * 插入排序
      */
     @Test
-    public void InsertRun(){//md，第一个就演砸啦
+    public void InsertRun(){
         int j;
         //从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
         for(int i = 1 ; i < METE_DATA.length ; i++){
             int tmp = METE_DATA[i];//记录要插入的数据
             j = i;
-            while(j > 0 && tmp < METE_DATA[j-1]){//从已经排序的序列最右边的开始比较，找到比其小的数
+            while(j > 0 && tmp < METE_DATA[j-1]){//从已经排序的序列最右边的开始比较，找到比其小的数 从右边往左边推
                 METE_DATA[j] = METE_DATA[j-1];//向后挪动
                 j--;
             }
