@@ -24,7 +24,8 @@ public class Demo {
                     @Override
                     public void call(Subscriber<? super String> sub) {
                         sub.onNext("Hello, world!");
-                        sub.onCompleted();
+//                        sub.onCompleted();
+                        sub.onNext("这是第二步");
                     }
                 }
         );
