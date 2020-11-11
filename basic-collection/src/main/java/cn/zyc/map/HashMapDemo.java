@@ -49,12 +49,12 @@ import java.util.Hashtable;
  */
 
 
-public class HashMapDemo<v,m> extends HashMap<v,m>{
+public class HashMapDemo<v, m> extends HashMap<v, m> {
     public static void main(String[] args) {
         HashMap map = new HashMapDemo();
 
-        for(int i =0 ;i <16;i++){
-            map.put("i"+i,"i"+i);
+        for (int i = 0; i < 16; i++) {
+            map.put("i" + i, "i" + i);
         }
 
         map.remove(1);

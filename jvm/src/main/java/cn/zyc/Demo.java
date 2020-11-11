@@ -9,16 +9,16 @@ import java.util.concurrent.CountDownLatch;
 public class Demo {
     public LinkedList linkedList = new LinkedList();
 
-    public synchronized  void push(Object object){
-        synchronized (linkedList){
+    public synchronized void push(Object object) {
+        synchronized (linkedList) {
             linkedList.addLast(object);
             notify();
         }
     }
 
-    public synchronized  Object pop()throws Exception{
-        synchronized (linkedList){
-            if(linkedList.size() <= 0){
+    public synchronized Object pop() throws Exception {
+        synchronized (linkedList) {
+            if (linkedList.size() <= 0) {
                 wait();
             }
             return linkedList.removeLast();
@@ -32,8 +32,8 @@ public class Demo {
             @Override
             public void run() {
                 try {
-                    int i =100;
-                    while (i>=0){
+                    int i = 100;
+                    while (i >= 0) {
                         demo.push("a");
                         i--;
                     }
@@ -47,8 +47,8 @@ public class Demo {
             @Override
             public void run() {
                 try {
-                    for (int i =0 ;i<50 ;i++){
-                    System.out.println(demo.pop());
+                    for (int i = 0; i < 50; i++) {
+                        System.out.println(demo.pop());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -60,7 +60,7 @@ public class Demo {
             @Override
             public void run() {
                 try {
-                    for (int i =0 ;i<50 ;i++){
+                    for (int i = 0; i < 50; i++) {
                         System.out.println(demo.pop());
                     }
                 } catch (Exception e) {
@@ -75,8 +75,6 @@ public class Demo {
         t1.join();
         t2.join();
         t3.join();
-
-
 
 
     }

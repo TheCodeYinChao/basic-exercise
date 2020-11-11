@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * JCL --JUL
- *     --LOG4J
+ * --LOG4J
  */
 
 public class JCL {

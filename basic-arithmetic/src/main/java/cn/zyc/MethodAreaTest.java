@@ -15,14 +15,14 @@ public class MethodAreaTest {
     }
 }
 
-class Order{
-    public static int count  = 1;
+class Order {
+    public static int count = 1;
 
 
     public int aa;
 
 
-    public static App a  = new App();
+    public static App a = new App();
 
     static {
         try {

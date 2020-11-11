@@ -15,7 +15,7 @@ public class ProxyDynamic {
         Class[] classes = {Ihello.class};
         Class<?>[] classes1 = Ihello.class.getClasses();
 
-        Ihello o = (Ihello)Proxy.newProxyInstance(Ihello.class.getClassLoader(),  classes, handler);
+        Ihello o = (Ihello) Proxy.newProxyInstance(Ihello.class.getClassLoader(), classes, handler);
         o.sayHello();
 
     }

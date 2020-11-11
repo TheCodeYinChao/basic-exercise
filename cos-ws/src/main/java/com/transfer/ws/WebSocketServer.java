@@ -17,48 +17,48 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-public class WebSocketServer  {
-	private ConcurrentHashMap<String,WsEntity> ws;
-	private ConcurrentHashMap<String,OscEntity> oscs;
-	private MsgRetry msgRetry;
+public class WebSocketServer {
+    private ConcurrentHashMap<String, WsEntity> ws;
+    private ConcurrentHashMap<String, OscEntity> oscs;
+    private MsgRetry msgRetry;
 
-	public WebSocketServer(ConcurrentHashMap<String,WsEntity> ws, ConcurrentHashMap<String,OscEntity> oscs,MsgRetry msgRetry) {
-		this.ws = ws;
-		this.oscs = oscs;
-		this.msgRetry = msgRetry;
-	}
+    public WebSocketServer(ConcurrentHashMap<String, WsEntity> ws, ConcurrentHashMap<String, OscEntity> oscs, MsgRetry msgRetry) {
+        this.ws = ws;
+        this.oscs = oscs;
+        this.msgRetry = msgRetry;
+    }
 
-	public void run(int port) throws Exception {
-		EventLoopGroup bossGroup = new NioEventLoopGroup();
-		EventLoopGroup workerGroup = new NioEventLoopGroup();
-		try {
-			ServerBootstrap b = new ServerBootstrap();
-			b.group(bossGroup, workerGroup)
-				.channel(NioServerSocketChannel.class)
-				.childHandler(new ChannelInitializer<SocketChannel>() {
+    public void run(int port) throws Exception {
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        try {
+            ServerBootstrap b = new ServerBootstrap();
+            b.group(bossGroup, workerGroup)
+                    .channel(NioServerSocketChannel.class)
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
 
-				@Override
-				protected void initChannel(SocketChannel ch)
-					throws Exception {
-					ChannelPipeline pipeline = ch.pipeline();
-					pipeline.addLast("http-codec",
-						new HttpServerCodec());
-					pipeline.addLast("aggregator",
-						new HttpObjectAggregator(65536));
-					ch.pipeline().addLast("http-chunked",
-						new ChunkedWriteHandler());
-					pipeline.addLast("handler",
-						new WebSocketServerHandler(ws,oscs,msgRetry));
-				}
-				});
+                        @Override
+                        protected void initChannel(SocketChannel ch)
+                                throws Exception {
+                            ChannelPipeline pipeline = ch.pipeline();
+                            pipeline.addLast("http-codec",
+                                    new HttpServerCodec());
+                            pipeline.addLast("aggregator",
+                                    new HttpObjectAggregator(65536));
+                            ch.pipeline().addLast("http-chunked",
+                                    new ChunkedWriteHandler());
+                            pipeline.addLast("handler",
+                                    new WebSocketServerHandler(ws, oscs, msgRetry));
+                        }
+                    });
 
-			Channel ch = b.bind(port).sync().channel();
-			System.out.println("Web socket server started at port " + port + '.');
-			System.out.println("Open your browser and navigate to http://localhost:" + port + '/');
-			ch.closeFuture().sync();
-		} finally {
-			bossGroup.shutdownGracefully();
-			workerGroup.shutdownGracefully();
-		}
+            Channel ch = b.bind(port).sync().channel();
+            System.out.println("Web socket server started at port " + port + '.');
+            System.out.println("Open your browser and navigate to http://localhost:" + port + '/');
+            ch.closeFuture().sync();
+        } finally {
+            bossGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
+        }
     }
 }

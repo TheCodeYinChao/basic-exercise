@@ -7,16 +7,16 @@ package cn.zyc.jvm中的池;
  * version: 1.0 <br>
  */
 public class DemoPool {
-    private static  final  Integer i=1;
+    private static final Integer i = 1;
 
-    private  Integer i1=1;
+    private Integer i1 = 1;
 
-    private static final  String aa="dad";
+    private static final String aa = "dad";
 
-    private static final DemoPool DEMO_POOL= new DemoPool();
+    private static final DemoPool DEMO_POOL = new DemoPool();
 
 
-    public void test(){
+    public void test() {
 
     }
 

@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
  * version: 1.0 <br>
  */
 public class UnsafeDemo {
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
 //        operaArryObj();
 
         operaArryint();
@@ -21,8 +21,8 @@ public class UnsafeDemo {
     /**
      * 安全的操作数组 引用类型
      */
-    public static void operaArryObj()throws Exception{
-       Integer[] str = new Integer[10];
+    public static void operaArryObj() throws Exception {
+        Integer[] str = new Integer[10];
         str[1] = 1;
         Class<?> ak = Integer[].class;
         Field unsafeField = Unsafe.class.getDeclaredFields()[0];
@@ -42,8 +42,8 @@ public class UnsafeDemo {
         */
         long ASHIFT = 31 - Integer.numberOfLeadingZeros(scale);//算术位移 这里的计算指的是什么意思？
         //16+0  16+4 16+8
-        long n =1; //数组的第几个元素
-        unsafe.compareAndSwapObject(str, ((long)n << ASHIFT/*代表 b乘以2^ASHIFT*/) + ABASE, 1, 2);
+        long n = 1; //数组的第几个元素
+        unsafe.compareAndSwapObject(str, ((long) n << ASHIFT/*代表 b乘以2^ASHIFT*/) + ABASE, 1, 2);
         for (Integer s : str) {
             System.out.println(s);
         }
@@ -52,7 +52,7 @@ public class UnsafeDemo {
     /**
      * 安全的操作数组 基本类型
      */
-    public static void operaArryint()throws Exception{
+    public static void operaArryint() throws Exception {
         int[] str = new int[10];
         str[1] = 1;
         Class<?> ak = int[].class;
@@ -74,8 +74,8 @@ public class UnsafeDemo {
         */
         long ASHIFT = 31 - Integer.numberOfLeadingZeros(scale);//算术位移 这里的计算指的是什么意思？
         //16+0  16+4 16+8
-        long n =1; //数组的第几个元素
-        unsafe.compareAndSwapInt(str, ((long)n << ASHIFT/*代表 b乘以2^ASHIFT*/) + ABASE, 1, 2);
+        long n = 1; //数组的第几个元素
+        unsafe.compareAndSwapInt(str, ((long) n << ASHIFT/*代表 b乘以2^ASHIFT*/) + ABASE, 1, 2);
         for (Integer s : str) {
             System.out.println(s);
         }

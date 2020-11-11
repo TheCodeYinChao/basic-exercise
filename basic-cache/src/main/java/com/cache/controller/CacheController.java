@@ -17,7 +17,7 @@ public class CacheController {
 
 
     @GetMapping("/getCache")
-    public Object getCache(@RequestParam String orderId){
+    public Object getCache(@RequestParam String orderId) {
         return cacheService.queryOrder(orderId);
     }
 }

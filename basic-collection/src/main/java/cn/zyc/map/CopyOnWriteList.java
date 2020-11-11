@@ -7,8 +7,8 @@ public class CopyOnWriteList {
     public static void main(String[] args) {
 
         CopyOnWriteArrayList<String> c = new CopyOnWriteArrayList<String>();
-        for (int i = 0;i<10 ; i++) {
-            c.add("i"+i);
+        for (int i = 0; i < 10; i++) {
+            c.add("i" + i);
         }
 
 

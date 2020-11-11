@@ -10,7 +10,7 @@ public class IntercepterImpl1 implements Intercept {
         System.out.println("拦截2");
         try {
 
-           return  invocation.process();
+            return invocation.process();
 
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -22,6 +22,6 @@ public class IntercepterImpl1 implements Intercept {
 
     @Override
     public Object register(Object target) {
-        return TargetProxy1.waper(target,this);
+        return TargetProxy1.waper(target, this);
     }
 }

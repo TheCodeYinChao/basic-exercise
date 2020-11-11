@@ -1,6 +1,6 @@
 package cn.zyc.jvm.classload;
 
-public class DemoClinet extends Parent{
+public class DemoClinet extends Parent {
 
     public DemoClinet() {
     }
@@ -9,7 +9,7 @@ public class DemoClinet extends Parent{
         super(a);
     }
 
-    public DemoClinet(int a,int b) {
+    public DemoClinet(int a, int b) {
         System.out.println("构造方法2");
     }
 

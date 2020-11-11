@@ -21,7 +21,7 @@ public class FastSort {
         }
 
         long l = System.currentTimeMillis();
-        fastSort(arr,0, arr.length - 1);
+        fastSort(arr, 0, arr.length - 1);
         long l1 = System.currentTimeMillis();
 
         System.out.println();

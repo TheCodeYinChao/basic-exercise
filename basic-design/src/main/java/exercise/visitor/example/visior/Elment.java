@@ -3,7 +3,7 @@ package exercise.visitor.example.visior;
 public interface Elment {
     void accept(Visitor visitor);
 
-    void  rule();
+    void rule();
 
     double getValue();
 }

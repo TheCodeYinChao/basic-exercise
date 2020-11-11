@@ -2,11 +2,11 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
- <!--   <parent>
-        <artifactId>basic-exercise</artifactId>
-        <groupId>cn.zyc</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>-->
+    <!--   <parent>
+           <artifactId>basic-exercise</artifactId>
+           <groupId>cn.zyc</groupId>
+           <version>1.0-SNAPSHOT</version>
+       </parent>-->
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zyc</groupId>
     <version>0.0.1-SNAPSHOT</version>
@@ -23,12 +23,12 @@
     </properties>
 
     <dependencies>
-       <!-- <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>junit</groupId>
+             <artifactId>junit</artifactId>
+             <version>4.11</version>
+             <scope>test</scope>
+         </dependency>-->
 
         <dependency>
             <groupId>log4j</groupId>
@@ -36,11 +36,11 @@
             <version>1.2.17</version>
         </dependency>
 
-   <!--     <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
-        </dependency>-->
+        <!--     <dependency>
+                 <groupId>commons-logging</groupId>
+                 <artifactId>commons-logging</artifactId>
+                 <version>1.2</version>
+             </dependency>-->
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -82,25 +82,25 @@
              <version>1.7.25</version>
          </dependency>-->
         <!--绑定器-->
-   <!--     <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
-        </dependency>-->
+        <!--     <dependency>
+                 <groupId>org.slf4j</groupId>
+                 <artifactId>slf4j-log4j12</artifactId>
+                 <version>1.7.25</version>
+             </dependency>-->
         <!--绑定器-->
-       <!-- <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <version>1.7.25</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-jdk14</artifactId>
+             <version>1.7.25</version>
+         </dependency>-->
 
 
         <!--桥接器-->
-       <!-- <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.7.25</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>jcl-over-slf4j</artifactId>
+             <version>1.7.25</version>
+         </dependency>-->
 
     </dependencies>
 

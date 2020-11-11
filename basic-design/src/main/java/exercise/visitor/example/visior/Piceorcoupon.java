@@ -1,6 +1,6 @@
 package exercise.visitor.example.visior;
 
-public class Piceorcoupon extends AbstractFinalPrice implements Elment{
+public class Piceorcoupon extends AbstractFinalPrice implements Elment {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);

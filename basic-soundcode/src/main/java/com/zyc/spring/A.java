@@ -8,7 +8,7 @@ import javax.annotation.Resource;
  * Created by Admin on 2019/12/29.
  */
 @Component
-public class A {
+public class A<String> {
 
     @Resource //按类型寻找，再按名称寻找  不属于自动装配的范畴
     private TestAutoType testAutoType;

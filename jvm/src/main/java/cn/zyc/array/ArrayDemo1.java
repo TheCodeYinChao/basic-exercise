@@ -5,10 +5,10 @@ package cn.zyc.array;
  * date: 2020/7/7 12:13 <br>
  * author: zyc <br>
  * version: 1.0 <br>
- *
- *     https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.newarray
- *
- *     newarray 后面的数组代表类型标识
+ * <p>
+ * https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.newarray
+ * <p>
+ * newarray 后面的数组代表类型标识
  */
 public class ArrayDemo1 {
     public static void main(String[] args) {

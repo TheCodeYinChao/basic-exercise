@@ -19,7 +19,7 @@ public class JosephuTest {
         linkedQueue.add(person3);
         linkedQueue.add(person4);*/
 
-        int i ;
+        int i;
         josephuTest.add(person);
         josephuTest.add(person1);
         josephuTest.add(person2);
@@ -66,24 +66,25 @@ public class JosephuTest {
 
     /**
      * 删除节点
+     *
      * @param id
      */
-    public void del(int id){
-        if (first == null){
+    public void del(int id) {
+        if (first == null) {
             System.out.println("链表为空 删除失败");
             return;
         }
         Person first = this.first;//保持头节点
 
-        Person person = new Person(first.id,first.age,first.name);
+        Person person = new Person(first.id, first.age, first.name);
         person.setNext(first.next);
         Person pro = null;
-        for(int i =0 ; i < id ;){
-            if(i==id-1){
+        for (int i = 0; i < id; ) {
+            if (i == id - 1) {
                 pro = person;
             }
             int i1 = i++;
-            if(i1 == id){
+            if (i1 == id) {
                 pro.setNext(person.next);
                 break;
             }
@@ -92,8 +93,8 @@ public class JosephuTest {
     }
 
 
-    public void foreach(){
-        if (first == null){
+    public void foreach() {
+        if (first == null) {
             System.out.println("环形链表为空...");
             return;
         }
@@ -102,7 +103,7 @@ public class JosephuTest {
         do {
             System.out.println(person);
             person = person.next;
-        }while (person != first);
+        } while (person != first);
     }
 
 

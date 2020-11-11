@@ -10,7 +10,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class Server {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 //        test();
 //        test1();
 //        test3();
@@ -18,7 +18,7 @@ public class Server {
     }
 
 
-    public static void test1()throws Exception{
+    public static void test1() throws Exception {
         InetAddress ipAddr = InetAddress.getByName("127.0.0.1");
         Integer port = 8764;
 //        Integer port = 7000;
@@ -47,9 +47,7 @@ public class Server {
     }
 
 
-
-
-    public static void test()throws Exception{
+    public static void test() throws Exception {
         /*------------------------------设置要发送的目标主机的IP地址------------------------------------*/
         InetAddress ipAddr = InetAddress.getByName("114.242.236.157");
         /*------------------------------设置要发送的目标主机的端口------------------------------------*/
@@ -85,7 +83,8 @@ public class Server {
         //把打包好的东西送走
         out.send(pack);
     }
-    public static void test3()throws Exception{
+
+    public static void test3() throws Exception {
         /*------------------------------设置要发送的目标主机的IP地址------------------------------------*/
         InetAddress ipAddr = InetAddress.getByName("114.242.236.157");
         /*------------------------------设置要发送的目标主机的端口------------------------------------*/
@@ -118,11 +117,11 @@ public class Server {
     }
 
 
-    public static  void test4()throws Exception{
+    public static void test4() throws Exception {
         DatagramSocket socket = new DatagramSocket(8888);
         String str = "nihao";
         DatagramPacket packet =
-                new DatagramPacket(str.getBytes(), str.getBytes().length, InetAddress.getByName("127.0.0.1"),57367);
+                new DatagramPacket(str.getBytes(), str.getBytes().length, InetAddress.getByName("127.0.0.1"), 57367);
         socket.send(packet);
     }
 }

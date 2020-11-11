@@ -12,7 +12,7 @@ import java.util.Properties;
  * Created by Admin on 2019/12/22.
  */
 @Intercepts({
-        @Signature(type = StatementHandler.class,method = "prepare" ,args = {Connection.class,Integer.class})
+        @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
 })
 public class DemoPlugin implements Interceptor {
     @Override
@@ -34,10 +34,10 @@ public class DemoPlugin implements Interceptor {
 
     @Override
     public Object plugin(Object target) {
-        if(target instanceof StatementHandler){
+        if (target instanceof StatementHandler) {
 
-            return Plugin.wrap(target,this);
-        }else
+            return Plugin.wrap(target, this);
+        } else
             return target;
     }
 

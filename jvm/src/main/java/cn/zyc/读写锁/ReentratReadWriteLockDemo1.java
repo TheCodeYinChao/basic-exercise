@@ -43,7 +43,7 @@ public class ReentratReadWriteLockDemo1 {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 demo3.lockDegrade();
-            }, "线程"+i).start();
+            }, "线程" + i).start();
         }
     }
 

@@ -14,6 +14,7 @@ public class StackStruTest {
         num = 10;
         //System.out.println("====="+num);
     }
+
     private static int num = 20;
 
     private static int two = 21;

@@ -7,14 +7,15 @@ package cn.zyc;
  * version: 1.0 <br>
  */
 public class SyncDemo {
-    private SyncDemo(){}
+    private SyncDemo() {
+    }
 
     private static SyncDemo syncDemo;
 
-    public static SyncDemo getinstance(){
-        if(syncDemo == null){
-            synchronized (SyncDemo.class){
-                if(syncDemo == null){
+    public static SyncDemo getinstance() {
+        if (syncDemo == null) {
+            synchronized (SyncDemo.class) {
+                if (syncDemo == null) {
                     syncDemo = new SyncDemo();
                 }
             }

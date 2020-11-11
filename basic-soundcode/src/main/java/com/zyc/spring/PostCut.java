@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 public class PostCut {
 
     @PostConstruct
-    public void postCut(){
+    public void postCut() {
         System.out.println("测试postconstruct");
     }
 }

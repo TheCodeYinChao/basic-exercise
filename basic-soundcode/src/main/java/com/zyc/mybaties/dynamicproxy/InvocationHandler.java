@@ -9,11 +9,11 @@ public class InvocationHandler implements java.lang.reflect.InvocationHandler {
         this.target = target;
     }
 
-    public  Object invoke(Object proxy, Method method, Object[]args) throws Throwable{
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("invoke  method");
-        System.out.println("method name " +method.getName());
+        System.out.println("method name " + method.getName());
 
-        return method.invoke(target,args);
+        return method.invoke(target, args);
 
     }
 

@@ -12,6 +12,6 @@ public class ImportBeanDefinitionRegistrarMy implements ImportBeanDefinitionRegi
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(RegistryBean.class);
-        registry.registerBeanDefinition("aa",beanDefinitionBuilder.getBeanDefinition());
+        registry.registerBeanDefinition("aa", beanDefinitionBuilder.getBeanDefinition());
     }
 }

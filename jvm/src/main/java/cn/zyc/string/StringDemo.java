@@ -5,14 +5,13 @@ package cn.zyc.string;
  * date: 2020/5/20 12:00 <br>
  * author: zyc <br>
  * version: 1.0 <br>
- *  <a href="https://blog.csdn.net/qq_34490018/article/details/82110578">链接博客</a>
- *
- *
- *  这里面涉及到一个值传递和引用传递的例子结论
- *（ 1）基本数据类型传值，对形参的修改不会影响实参；
+ * <a href="https://blog.csdn.net/qq_34490018/article/details/82110578">链接博客</a>
+ * <p>
+ * <p>
+ * 这里面涉及到一个值传递和引用传递的例子结论
+ * （ 1）基本数据类型传值，对形参的修改不会影响实参；
  * （2）引用类型传引用，形参和实参指向同一个内存地址（同一个对象），所以对参数的修改会影响到实际的对象；
  * （3）String, Integer, Double等immutable的类型特殊处理，可以理解为传值，最后的操作不会修改实参对象。
- *
  */
 public class StringDemo {
     public static void main(String[] args) {
@@ -37,7 +36,7 @@ public class StringDemo {
          *  S3 则查找翅中有1212 则直接指向 常量池中字符的地址 如果没有的话则直接新建常量字符到池中 并返回池中地址的引用给s3
          */
 
-        String s5 ="1"+"2"+"1"+"2";
+        String s5 = "1" + "2" + "1" + "2";
 
         System.out.println(s4 == s5);//true
 
@@ -48,7 +47,7 @@ public class StringDemo {
          * s5 使用包含常量的字符串连接创建是也是常量，编译期就能确定了，直接入字符串常量池，当然同样需要判断是否已经存在该字符串
          */
 
-        String s6 = "1"+"2"+new String("1")+"2";
+        String s6 = "1" + "2" + new String("1") + "2";
         System.out.println(s5 == s6);//false
         System.out.println(s4 == s6);//false s6 不是常量池的地址
 
@@ -70,7 +69,7 @@ public class StringDemo {
         System.out.println(s5 == s7);//true
 
 
-        String S9 ="11";
+        String S9 = "11";
 
         String s8 = new String("1") + new String("1");
 
