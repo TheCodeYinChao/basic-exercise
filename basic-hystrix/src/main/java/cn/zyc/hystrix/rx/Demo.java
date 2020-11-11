@@ -18,12 +18,11 @@ public class Demo {
 
     public static void test(){
 
-
         Observable<String> objectObservable = Observable.create(
-                new Observable.OnSubscribe<String>() {
+                new Observable.OnSubscribe<String>() {//自定义发射器
                     @Override
                     public void call(Subscriber<? super String> sub) {
-                        sub.onNext("Hello, world!");
+                        sub.onNext("Hello, world!");//可以发射多次
 //                        sub.onCompleted();
                         sub.onNext("这是第二步");
                     }
