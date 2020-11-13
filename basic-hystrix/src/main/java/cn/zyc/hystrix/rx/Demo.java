@@ -1,7 +1,10 @@
 package cn.zyc.hystrix.rx;
 
+import com.sun.media.jfxmediaimpl.MediaDisposer;
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
+import rx.functions.Func1;
 
 /**
  * description: Demo <br>
@@ -18,30 +21,37 @@ public class Demo {
 
     public static void test(){
 
-        Observable<String> objectObservable = Observable.create(
-                new Observable.OnSubscribe<String>() {//自定义发射器
-                    @Override
-                    public void call(Subscriber<? super String> sub) {
-                        sub.onNext("Hello, world!");//可以发射多次
-//                        sub.onCompleted();
-                        sub.onNext("这是第二步");
-                    }
-                }
-        );
-
-
-        Subscriber<String> mySubscriber = new Subscriber<String>() {
-            @Override
-            public void onNext(String s) { System.out.println(s); }
-
-            @Override
-            public void onCompleted() { }
-
-            @Override
-            public void onError(Throwable e) { }
-
-        };
-
-        objectObservable.subscribe(mySubscriber);
     }
+
+  /*  Observable novel=Observable.create(new ObservableOnSubscribe<String>() {
+        @Override
+        public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+            emitter.onNext("连载1"); //可以发射多次
+            emitter.onNext("连载2");
+            emitter.onNext("连载3");
+            emitter.onComplete();
+        }
+    });
+    //观察者
+    Observer<String> reader=new Observer<String>() {
+        @Override
+        public void onSubscribe(MediaDisposer.Disposable d) {
+        }
+
+        @Override
+        public void onNext(String value) {
+            if ("2".equals(value)){
+                return;
+            }
+        }
+
+        @Override
+        public void onError(Throwable e) {
+        }
+
+        @Override
+        public void onComplete() {
+        }
+    };
+        novel.subscribe(reader);*/
 }

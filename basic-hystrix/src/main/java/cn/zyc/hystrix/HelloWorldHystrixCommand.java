@@ -50,7 +50,7 @@ public class HelloWorldHystrixCommand extends HystrixCommand <String>{
         //异步调用,可自由控制获取结果时机,
         Future<String> future = helloWorldCommand.queue();
         //get操作不能超过command定义的超时时间,默认:1秒
-        result = future.get(1000, TimeUnit.MILLISECONDS);
+        result = future.get(10000, TimeUnit.MILLISECONDS);
         System.out.println("result=" + result);
 
         System.out.println("mainThread=" + Thread.currentThread().getName());
