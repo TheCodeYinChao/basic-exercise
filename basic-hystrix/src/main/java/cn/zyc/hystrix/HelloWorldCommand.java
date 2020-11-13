@@ -1,8 +1,6 @@
 package cn.zyc.hystrix;
 
-import com.netflix.hystrix.HystrixCommand;
-import com.netflix.hystrix.HystrixCommandGroupKey;
-import com.netflix.hystrix.HystrixCommandProperties;
+import com.netflix.hystrix.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,8 +14,13 @@ public class HelloWorldCommand extends HystrixCommand<String> {
     private final String name;
     public HelloWorldCommand(String name) {
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("HelloWorldGroup"))
+                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("aa"))
+                .andCommandKey(HystrixCommandKey.Factory.asKey("aaa"))
                 /* 配置依赖超时时间,500毫秒*/
-                .andCommandPropertiesDefaults(HystrixCommandProperties.Setter().withExecutionIsolationThreadTimeoutInMilliseconds(500)));
+                .andCommandPropertiesDefaults(
+                        HystrixCommandProperties.Setter().withExecutionIsolationThreadTimeoutInMilliseconds(500)
+                )
+        );
         this.name = name;
     }
     @Override
