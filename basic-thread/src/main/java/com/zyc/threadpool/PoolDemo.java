@@ -1,6 +1,7 @@
 package com.zyc.threadpool;
 
-import java.io.InputStream;
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.*;
@@ -16,6 +17,14 @@ public class PoolDemo {
      * <p>
      * 同时找到一个有关jdk源码探索的方法
      *
+     *
+     * 线程池也会有自己的相关状态
+     *   private static final int RUNNING    = -1 << COUNT_BITS; //线程池处在RUNNING状态时，能够接收新任务，以及对已添加的任务进行处理
+     *   private static final int SHUTDOWN   =  0 << COUNT_BITS;//线程池处在SHUTDOWN状态时，不接收新任务，但能处理已添加的任务。 调用线程池的shutdown()接口时，线程池由RUNNING -> SHUTDOWN。
+     *   private static final int STOP       =  1 << COUNT_BITS;//线程池处在STOP状态时，不接收新任务，不处理已添加的任务，并且会中断正在处理的任务。 调用线程池的shutdownNow()接口时，线程池由(RUNNING or SHUTDOWN ) -> STOP。
+     *   private static final int TIDYING    =  2 << COUNT_BITS;//当所有的任务已终止，ctl记录的”任务数量”为0，线程池会变为TIDYING状态。当线程池变为TIDYING状态时，会执行钩子函数terminated()。terminated()在ThreadPoolExecutor类中是空的，若用户想在线程池变为TIDYING时，进行相应的处理；可以通过重载terminated()函数来实现   当线程池在SHUTDOWN状态下，阻塞队列为空并且线程池中执行的任务也为空时，就会由 SHUTDOWN -> TIDYING
+     *   private static final int TERMINATED =  3 << COUNT_BITS;//线程池彻底终止，就变成TERMINATED状态。  线程池处在TIDYING状态时，执行完terminated()之后，就会由 TIDYING -> TERMINATED。
+     *
      * @param args
      */
 
@@ -24,7 +33,7 @@ public class PoolDemo {
 
         Executors.newCachedThreadPool();
         Executors.newCachedThreadPool();
-        executorService.submit(new Runnable() {
+        Future<?> submit = executorService.submit(new Runnable() {
             @Override
             public void run() {
 
@@ -93,5 +102,15 @@ public class PoolDemo {
                 }
             }).start();
         }
+    }
+
+    @Test
+    public void tests1() throws ExecutionException, InterruptedException {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        Future<?> submit = executorService.submit(() -> {
+            System.out.println("执行数据！！");
+        });
+        submit.get();
+
     }
 }
