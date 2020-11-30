@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * ！！！ 不得精髓  要学会必须要先学会应用场景 不然学的快忘记的更快
+ *
+ * classsloader  自定义主要目的就是为了破坏双亲委派 比如OSGi springboot中的热更新
  * Created by Admin on 2019/12/24.
  */
 public class ClassLoad extends ClassLoader {
