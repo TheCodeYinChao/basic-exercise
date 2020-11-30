@@ -5,8 +5,8 @@
  *
  * 由jdk1.6之后提供的自编译来实现
  *
-    Test3.java
- * 中相比于 CustomStringJavaCompiler
+ {@link cn.zyc.jcostumcomlper.Test3}
+ * 中相比于  {@link cn.zyc.jcostumcomlper.CustomStringJavaCompiler}
  * 增加了安全性机制，防止服务器崩溃 比如 死循环之类的代码
  * date: 2020/11/3 14:46 <br>
  * author: zyc <br>

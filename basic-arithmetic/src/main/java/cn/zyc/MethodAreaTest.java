@@ -25,6 +25,7 @@ class Order {
     public static App a = new App();
 
     static {
+        //类加载 耗时操作会阻塞类的加载
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
