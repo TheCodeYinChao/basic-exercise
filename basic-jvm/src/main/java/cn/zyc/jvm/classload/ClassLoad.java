@@ -2,6 +2,7 @@ package cn.zyc.jvm.classload;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.Callable;
 
 /**
  * Created by Admin on 2019/12/24.
@@ -26,11 +27,21 @@ public class ClassLoad extends ClassLoader {
     }
 
     public static void main(String[] args) throws Exception {
+        DemoClinet demoClinet = new DemoClinet();
+        System.out.println(demoClinet.getClass().getClassLoader());
+        System.out.println(demoClinet);
 
         ClassLoad classLoad = new ClassLoad();
         Class<?> aClass = classLoad.loadClass("cn.zyc.jvm.classload.DemoClinet");
         Object o = aClass.newInstance();
         System.out.println(o);
+
+        classLoad = null;//类的卸载
+        classLoad = new ClassLoad();
+        System.gc();
+        classLoad.loadClass("cn.zyc.jvm.classload.DemoClinet");
+
+
 
     }
 }
