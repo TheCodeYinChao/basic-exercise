@@ -1,5 +1,6 @@
 package cn.zyc.jvm.classload;
 
+
 public class Parent {
 
     public static final int CONSTANCE = 10;

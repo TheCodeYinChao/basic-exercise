@@ -1,8 +1,11 @@
 package cn.zyc.jvm.classload;
 
+
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.concurrent.Callable;
 
 /**
  * ！！！ 不得精髓  要学会必须要先学会应用场景 不然学的快忘记的更快
@@ -19,12 +22,12 @@ public class ClassLoad extends ClassLoader {
         if (is == null) {
             return super.loadClass(name);
         }
-        byte[] bytes = new byte[0];
+        byte [] bytes = new byte[0];
         try {
             bytes = new byte[is.available()];
-            is.read();
+            IOUtils.readFully(is,bytes);
         } catch (IOException e) {
-            throw new ClassNotFoundException(name);
+            e.printStackTrace();
         }
         return defineClass(name, bytes, 0, bytes.length);
     }
@@ -42,7 +45,11 @@ public class ClassLoad extends ClassLoader {
         classLoad = null;//类的卸载
         classLoad = new ClassLoad();
         System.gc();
-        classLoad.loadClass("cn.zyc.jvm.classload.DemoClinet");
+        Class<?> aClass1 = classLoad.loadClass("cn.zyc.jvm.classload.DemoClinet");
+        Object o1 = aClass1.newInstance();
+        System.out.println(o1);
+
+        System.out.println("o1==o??"+o1==o);
 
 
 
