@@ -1,9 +1,11 @@
-package cn.zyc.jvm.proxy;
+package cn.zyc.jvm.proxy.cglb;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+import org.apache.naming.factory.BeanFactory;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -12,21 +14,37 @@ import java.lang.reflect.Method;
  * author: zyc
  */
 public class CGLBExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
 
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(CGLBExample.class);
         enhancer.setCallback(new MethodInterceptor() {
             @Override
             public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+                System.out.println(method.getName());
                 System.out.println("before method run...");
+
                 Object result = proxy.invokeSuper(obj, args);
                 System.out.println("after method run...");
                 return result;
             }
         });
-        CGLBExample sample = (CGLBExample) enhancer.create();
-        sample.test();
+        enhancer.setStrategy(new BeanFactoryAwareGeneratorStrategy(null));
+        enhancer.setUseCache(true);
+        Object o = enhancer.create();
+        Field[] fields = o.getClass().getFields();
+
+        for (Field field : fields) {
+            System.out.println(field.getName());
+            if("$$beanFactory".equals(field.getName())){
+                field.set(o,new BeanFactory());
+            }
+        }
+
+        System.out.println(o);
+
+//        CGLBExample sample = (CGLBExample)
+//        sample.test();
     }
 
     /**
