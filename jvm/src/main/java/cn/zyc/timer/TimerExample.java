@@ -3,6 +3,7 @@ package cn.zyc.timer;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -30,6 +31,8 @@ public class TimerExample {
             }
         },1000);
 
-        System.in.read();
+        int read = System.in.read();//junit 是不允许读取键盘输入时间，这里会一直阻塞
     }
 }
+
+
