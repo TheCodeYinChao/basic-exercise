@@ -1,5 +1,10 @@
 package com.zyc.spring.cachethree;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Stream;
+
 /**
  * dsc: DemoCIRLE
  * date: 2020/12/15 15:09
@@ -7,7 +12,11 @@ package com.zyc.spring.cachethree;
  */
 public class DemoCIRLE {
     public static void main(String[] args) {
-        System.out.println(10% 10);
+        List list = new ArrayList();
+
+        Stream<String> stringStream = Stream.of("1", "2");
+        //flatmap 合并流
+        list.stream().flatMap(x->Stream.of(x)).count();
 
     }
 }
