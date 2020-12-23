@@ -30,6 +30,7 @@
         <module>jvm</module>
         <module>basic-hystrix</module>
         <module>basic-shell</module>
+        <module>basic-cache</module>
     </modules>
 
     <properties>
