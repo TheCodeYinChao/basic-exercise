@@ -1,11 +1,13 @@
 package cn.zyc.垃圾收集;
 
 import org.junit.Test;
-
+import sun.nio.ch.DirectBuffer;
+import java.nio.*;
 import java.io.IOException;
+import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
-import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 
 /**
  * dsc: GarbageCollection
@@ -56,13 +58,83 @@ public class GarbageCollection {
          *
          */
         f=null;
+
+
         System.gc();
         System.in.read();
 
     }
 
+    /**
+     * 学着使用 referencequeue
+     */
     @Test
-    public void refrence(){
-        WeakReference weakReference = new WeakReference(new FinalDemo());
+    public void enqueue虚引用(){
+        ReferenceQueue referenceQueue = new ReferenceQueue();
+        Object object = new Object();
+        System.out.println(object);
+        PhantomReference  p = new PhantomReference(object,referenceQueue);
+        object =null;
+        System.gc();
+        //这里有个问题是 gc完成之后才会去执行这个东西，这是时候poll出来的reference已经是空的啦
+        Reference poll = referenceQueue.poll();
+        Object o = poll.get();
+        System.out.println(o);
     }
+
+    /**
+     * 监控对象的销毁
+     * @throws InterruptedException
+     */
+    @Test
+    public void monitorObj() throws InterruptedException {
+        boolean isRun = true;
+        String abc = new String("abc");
+        System.out.println(abc.getClass() + "@" + abc.hashCode());
+        final ReferenceQueue<String> referenceQueue = new ReferenceQueue<String>();
+        boolean finalIsRun = isRun;
+        new Thread() {
+            public void run() {
+                while (finalIsRun) {
+                    Object obj = referenceQueue.poll();//这里是一个监控，当referencequeue中有值则证明对象被回收啦
+                    if (obj != null) {
+                        try {
+                            Field rereferent = Reference.class
+                                    .getDeclaredField("referent");
+                            rereferent.setAccessible(true);
+                            Object result = rereferent.get(obj);
+                            System.out.println("gc will collect："
+                                    + result.getClass() + "@"
+                                    + result.hashCode() + "\t"
+                                    + (String) result);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }.start();
+        PhantomReference<String> abcWeakRef = new PhantomReference<String>(abc, referenceQueue);
+        abc = null;
+        Thread.currentThread().sleep(3000);
+        System.gc();
+        Thread.currentThread().sleep(3000);
+        isRun = false;
+    }
+
+    /**
+     * 堆外内存的销毁
+     * 前提示需要发生gc
+     */
+    @Test
+    public void directBUffer(){
+//        DirectBuffer directBuffer = new DirectByteBuffer(100);
+        //这里面集成一个Cleaner，当发生gc时如果这个buffer的强引用被回收则清除堆外内存
+        ByteBuffer.allocate(10*1024*1024);//分配10M的内存 这个使用的是HeapByteBuffer 堆内存不用手动释放
+
+//        而unsafe获取的内存属于堆外内存jvm不会帮我们回收
+//        如何释放堆外内存  1 重写finalize 方法 jdk9已经没有这个啦  2 Cleaner 3 PhantomReference 利用这个监控方法对象是否被回收，如果回收去清除堆外内存
+
+    }
+
 }
