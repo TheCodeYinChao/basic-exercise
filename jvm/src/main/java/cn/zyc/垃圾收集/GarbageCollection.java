@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
+import java.lang.ref.WeakReference;
 
 /**
  * dsc: GarbageCollection
@@ -61,7 +62,7 @@ public class GarbageCollection {
     }
 
     @Test
-    public void enqueue(){
-        ReferenceQueue referenceQueue = new ReferenceQueue();
+    public void refrence(){
+        WeakReference weakReference = new WeakReference(new FinalDemo());
     }
 }
