@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
+import java.nio.channels.spi.AbstractSelector;
+import java.nio.channels.spi.SelectorProvider;
 import java.util.Iterator;
 
 /**
@@ -22,6 +24,11 @@ public class Server {
 
     public Server(InetSocketAddress socketAddress) throws Exception {
         assert socketAddress != null;
+/*
+
+        SelectorProvider provider = SelectorProvider.provider();
+        provider.openSelector()
+*/
 
         selector = Selector.open();
         serverSocketChannel = ServerSocketChannel.open();
