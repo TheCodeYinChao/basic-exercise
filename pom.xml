@@ -31,6 +31,7 @@
         <module>basic-hystrix</module>
         <module>basic-shell</module>
         <module>basic-cache</module>
+        <module>basic-socket</module>
     </modules>
 
     <properties>
