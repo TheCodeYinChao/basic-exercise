@@ -14,10 +14,14 @@ public class OOM {
         OOM M = new OOM();
         Integer i = 0;
         while (true){
-            map.put(i,new Object());
+//            map.put(i,new Object());
             i++;
         }
+//        stack();
+    }
 
+    public static void stack(){
+        stack();
     }
 
 }
