@@ -23,7 +23,7 @@ public class Array2Demo {
 
         for (int i = 0; i < 10000; i++) {
             for (int j = 0; j < 10000; j++) {
-                sum += dataArray[i][j];
+                sum += dataArray[i][j];//注意这里
             }
         }
 
@@ -33,7 +33,7 @@ public class Array2Demo {
         sum = 0;
         for (int i = 0; i < 10000; i++) {
             for (int j = 0; j < 10000; j++) {
-                sum += dataArray[j][i];
+                sum += dataArray[j][i];//注意这里的不同 ，会对性能又质的影响
             }
         }
         long end1 = System.currentTimeMillis();
