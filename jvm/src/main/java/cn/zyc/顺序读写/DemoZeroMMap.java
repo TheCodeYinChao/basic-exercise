@@ -21,9 +21,19 @@ import java.nio.channels.FileChannel;
  *
  *https://www.cnblogs.com/binyue/p/3727511.html
  *
+ *
+ * 内存映射文件首先将外存上的文件映射到内存中的一块连续区域，被当成一个字节数组进行处理，读写操作直接对内存进行操作，
+ * 而后再将内存区域重新映射到外存文件，这就节省了中间频繁的对外存进行读写的时间，大大降低了读写时间。
+ *
+ *
+ * 关于计算机理论的这块也不错
+ * https://www.cnblogs.com/jmsjh/p/7811601.html
  */
 public class DemoZeroMMap {
 
+    /**
+     * 顺序读写的演示
+     */
     @Test
     public  void testWrite(){
         String s = "C:\\Users\\RAYDATA\\Desktop\\aa.txt";
@@ -44,6 +54,15 @@ public class DemoZeroMMap {
         try {
             randomAccessTargetFile = new RandomAccessFile(file, "rw");
             FileChannel targetFileChannel = randomAccessTargetFile.getChannel();
+            /**
+             * 这里通过 内存映射来操作 文件
+             *
+             * 内存映射文件首先将外存上的文件映射到内存中的一块连续区域，
+             * 被当成一个字节数组进行处理，读写操作直接对内存进行操作，
+             * 而后再将内存区域重新映射到外存文件，这就节省了中间频繁的对外存进行读写的时间，
+             * 大大降低了读写时间。
+             *
+             */
             map = targetFileChannel.map(FileChannel.MapMode.READ_WRITE, 0, (long) 10 * 1024 * 1024);//这里从磁盘扣一块内存出来 ，通过自己个维护的写入index来顺序的读写
             map.position(index);
             map.put(content.getBytes());
