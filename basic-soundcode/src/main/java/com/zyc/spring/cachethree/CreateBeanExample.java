@@ -3,6 +3,8 @@ package com.zyc.spring.cachethree;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import javax.xml.transform.Source;
+
 /**
  * dsc: CreateBeanExample  循环依赖
  * 1、构造器注入循环依赖
@@ -84,10 +86,31 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class CreateBeanExample {
 
+    /**
+     * b addre:com.zyc.spring.cachethree.B@72bc6553
+     * 自定义 a 的代理对象 方法执行 前
+     * 自定义 a 的代理对象 方法执行 后
+     * a addre:com.zyc.spring.cachethree.A@66982506//这里我去获取a注入的对象是也执行啦 a的代理方法
+     * b method  call ： ----
+     * b --- call A.testa before
+     * 自定义 a 的代理对象 方法执行 前
+     * hello word!!A
+     * 自定义 a 的代理对象 方法执行 后
+     * b --- call A.testa after
+     * 测试自定义的 代理组件 是否把b也给代理啦  //结果显示并没有代理b
+     */
     @Test
     public void cacheThree(){
         AnnotationConfigApplicationContext c = new AnnotationConfigApplicationContext(AppConfig.class);
-        Object a = c.getBean("a");
-        System.out.println(a);
+        B b = (B) c.getBean("b");
+        System.out.println("b addre:"+b);
+
+
+        System.out.println("a addre:"+b.getA());
+
+        System.out.println("b method  call ： ----");
+        b.test();
+
+        b.testISProxy();
     }
 }
