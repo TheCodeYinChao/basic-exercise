@@ -1,4 +1,4 @@
-package cn.zyc.关于继承;
+package cn.zyc.关于继承和防止破坏面向对象的编程;
 
 /**
  * dsc: Demo 对于继承而言，子类可以扩展原有功能我们通过super来填充父类等的关键信息，

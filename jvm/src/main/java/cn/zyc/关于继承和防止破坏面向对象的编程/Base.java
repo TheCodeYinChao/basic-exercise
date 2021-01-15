@@ -1,4 +1,4 @@
-package cn.zyc.关于继承;
+package cn.zyc.关于继承和防止破坏面向对象的编程;
 
 /**
  * dsc: Base
