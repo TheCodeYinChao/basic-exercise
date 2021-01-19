@@ -27,9 +27,13 @@ public class ReversalLink {
 
 
     public static Node reversal(Node head){
-
-
-        return null;
+        Node n = head;
+        while (head.getNext() != null) {
+            n.setNext(head);
+            n =  head.getNext();
+            head  = head.getNext();
+        }
+        return  n;
     }
 
 
