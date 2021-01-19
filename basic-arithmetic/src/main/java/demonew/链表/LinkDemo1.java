@@ -1,20 +1,21 @@
 package demonew.链表;
 
+import javafx.beans.binding.When;
+
 /**
  * @author zyc
  * @date 2021/1/18
  * @time 23:00
- * @description : 头插 o（1） 尾插 o(n)
+ * @description : 带哨兵头节点
  */
-public class LinkDemo {
-    private Node head;
+public class LinkDemo1 {
+    private Node head = new Node();
 
 
     public static void main(String[] args) {
+        LinkDemo1 linkDemo = new LinkDemo1();
 
-        LinkDemo linkDemo = new LinkDemo();
-
-        System.out.println("-------------------------ADD");
+        System.out.println("-------------------------ADD  0 1 2 3");
         linkDemo.add(0);
         linkDemo.add(1);
         linkDemo.add(2);
@@ -36,13 +37,10 @@ public class LinkDemo {
      * @param val
      */
     public void add(int val){
+        Node n = this.head.getNext();
         Node newNode = new Node(val);
-        if(head == null){
-            this.head = newNode;
-            return;
-        }
-        newNode.setNext(head);
-        this.head = newNode;
+        newNode.setNext(n);
+        this.head.setNext(newNode);
     }
 
 
@@ -54,10 +52,8 @@ public class LinkDemo {
      */
     public void delete(int del){
 
-        Node p = this.head; //头节点
-        if(p == null){return;}
+        Node p = this.head.getNext(); //头节点
         Node q = null;
-
         while (p != null && p.getVal() != del){
              q = p;
              p = p.getNext();
@@ -73,11 +69,8 @@ public class LinkDemo {
     }
 
     public Node find(int val){
-        if (head == null) {
-            return null;
-        }
-        Node a = head;
-        while (a.getVal()!=val){
+        Node a = head.getNext();
+        while (a.val != val){
             a = a.getNext();
         }
         return a;
@@ -85,7 +78,7 @@ public class LinkDemo {
 
 
     public  void forEach(){
-        Node next = this.head;
+        Node next = this.head.getNext();
         while (next != null){
             System.out.println(next.getVal());
             next = next.getNext();
@@ -95,8 +88,11 @@ public class LinkDemo {
 
 
     static class  Node{
-        private int val;
+        private Integer val;
         private Node next;
+
+        public Node() {
+        }
 
         public Node(int val) {
             this.val = val;
