@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 堆内存相关设置
@@ -20,11 +21,14 @@ public class HeapOOM {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         List<OOMObject> list = new ArrayList<>();
         while (true) {
-
-//            list.add(new OOMObject());
+            TimeUnit.MILLISECONDS.sleep(50);
+            if(list.size()>100){
+                list = new ArrayList<>();
+            }
+            list.add(new OOMObject());
         }
     }
 
