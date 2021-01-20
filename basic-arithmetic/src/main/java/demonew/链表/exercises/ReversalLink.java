@@ -1,9 +1,9 @@
-package demonew.链表;
+package demonew.链表.exercises;
 
 /**
  * dsc: ReversalLink
  * date: 2021/1/19 19:24
- * author: zyc
+ * author: zyc 单链表反转
  */
 public class ReversalLink {
 
@@ -27,15 +27,17 @@ public class ReversalLink {
 
 
     public static Node reversal(Node head){
-        Node n = head;
-        while (head.getNext() != null) {
-            n.setNext(head);
-            n =  head.getNext();
-            head  = head.getNext();
+        Node pre = null;
+        Node temp = head;
+        while (temp != null){
+            temp.setNext(pre);
+            Node next = temp.getNext();
+            pre = temp;
+            temp = next;
         }
-        return  n;
-    }
+        return pre;
 
+    }
 
 
     public static void print(Node head){
