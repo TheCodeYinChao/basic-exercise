@@ -26,8 +26,18 @@ public class GCDemo {
 
     public void t(){
         {
-            Object p = new Object();//这个对象在这个代码块执行完成之后
+            Object a = new Object();//这个对象在这个代码块执行完成之后
             //如果触发gc的话 会回收
+        }
+        Object p = new Object();
+    }
+
+    public void t1(){
+        Object a;
+        {
+            a = new Object();//这个对象不会回收
+
+            Object b = new Object();
         }
         Object p = new Object();
     }
