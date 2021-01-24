@@ -13,6 +13,10 @@ import java.lang.reflect.Field;
  * dsc: GarbageCollection
  * date: 2020/12/22 19:12
  * author: zyc
+ *
+ * 如果这个对象被判定为确有必要执行finalize()方法，那么该对象将会被放置在一个名为F-Queue的
+ *       队列之中
+ *
  * 一个Reference类型的对象实例（简称R）总体来说有四种状态
  * 1. Active状态
  * 	即R的referent属性指向的（堆中）对象（下简称r）还有除了referent之外的其他强引用，尚未回收. 处于active状态的R会被GC器特别对待，因为GC器会监视它.一旦r的可达性发生了变化，变化到了某种状态以至于符	合回收策略的话，则R会改变它的状态到pending或者inactive.至于到底是变化到pending还是inactive，	  这取决于当时R创建的时候有没有传入ReferenceQueue(引用队列，本文简称RQ)这个参数进入构造器（参看下面的源码2, 即是否使用的是源码2的第七行的那个构造器，简称构造器2）. 如果使用了构造器2的话，就会将R加入到pending list（也就是Reference类中的static属性pending，它是该pending list的头结点），新创建的Reference对象实例都是处于active状态的.
