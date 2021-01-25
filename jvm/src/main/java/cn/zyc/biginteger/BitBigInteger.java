@@ -13,6 +13,9 @@ public class BitBigInteger {
 
         BigInteger bigInteger = b.setBit(2<<25);
 
-        System.out.println(bigInteger.testBit(2<<25));
+        BigInteger bigInteger1 = bigInteger.setBit(2 << 20);
+
+        System.out.println(bigInteger1.testBit(2<<25));
+        System.out.println(bigInteger1.testBit(2<<20));
     }
 }
