@@ -6,7 +6,14 @@ import java.util.Map;
 
 /**
  *-Xmx10m -XX:+UseSerialGC -XX:-UseCompressedOops//关闭压缩指针
-
+ * -Xmx30m //堆
+ * -Xms30m
+ * -Xmn10m //新生代
+ * -XX:+UseSerialGC //serialgc
+ * -XX:+PrintGCDetails //打印 gc详情
+ * -XX:-UseCompressedOops //关闭指针压缩针对64位
+ * -XX:SurvivorRatio=8
+ * -XX:-UseAdaptiveSizePolicy //关闭自适应 空间调节
  *
  * dsc: JHSDB_TestCase
  * date: 2021/1/26 14:20
@@ -26,6 +33,9 @@ public class JHSDB_TestCase1 {
         /**
          * 也就是说我们不加 static 在 多个对象中 即使是被final 修饰也会出现多
          * 份对象实例，但是如果我们想只有一份实例就要 加static 跟随aa 类的类对象而只有一份
+         *
+         * java 中的常量 是通过 static final 来定义的
+         *
          */
         final  ObjectHolder finalstaticObj = new ObjectHolder();
     }
