@@ -14,7 +14,7 @@ public class BubblingSort {
 
 
         for (int i = 0; i < arr.length; i++) {
-
+            boolean flag = false;
             for (int j = 0; j < arr.length - i - 1; j++) {
 
                 if (arr[j] > arr[j + 1]) {
@@ -22,13 +22,18 @@ public class BubblingSort {
                     int i2 = arr[j];
                     arr[j] = i1;
                     arr[j + 1] = i2;
+                    flag = true;
                 }
+            }
+            //提交结束因为没有数据交换，证明已经有序
+            if(!flag){
+                break;
             }
         }
 
         //打印
         for (int i : arr) {
-            System.out.println(i);
+            System.out.print(i+",");
         }
 
     }
