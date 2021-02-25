@@ -3,7 +3,9 @@ package com.cache.mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -34,6 +36,12 @@ public class MongoDbConfig {
 
             //连接到数据库
             MongoDatabase mongoDatabase = mongoClient.getDatabase("test_database");
+            MongoCollection<Document> collection = mongoDatabase.getCollection("test_table");
+
+            Document document = new Document();
+            document.append("aa","b");
+//            document.append("_id","1");
+            collection.insertOne(document);
             System.out.println("Connect to database successfully");
         } catch (Exception e) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
