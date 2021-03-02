@@ -157,7 +157,7 @@ public class LinkPalindrome {
         Node pre = null;
         System.out.println("z---" + r.val);
         Node next= null;
-        while(r !=p){
+        while(r !=p){ //就这点区别决定了自个写的是错的，别人写的是对的 泪崩
             next = r.next;
 
             r.next = pre;
