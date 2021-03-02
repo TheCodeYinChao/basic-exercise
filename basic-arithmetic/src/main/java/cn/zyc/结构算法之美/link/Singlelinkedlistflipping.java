@@ -61,4 +61,17 @@ public class Singlelinkedlistflipping {
         }
         ln = l.next;
     }
+
+    // 2.新建链表,头节点插入法
+    public ListNode reverseList2(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        ListNode pCur = head;
+        while (pCur != null) {
+            ListNode pNex = pCur.next;
+            pCur.next = dummy.next;
+            dummy.next = pCur;
+            pCur = pNex;
+        }
+        return dummy.next;
+    }
 }
