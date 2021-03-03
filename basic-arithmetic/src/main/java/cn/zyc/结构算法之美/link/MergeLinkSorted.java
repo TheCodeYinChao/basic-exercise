@@ -10,9 +10,25 @@ public class MergeLinkSorted {
 
 
     public Node mergeTwoLists(Node l1, Node l2) {
+        if(l1 == null || l2 == null){
+            return l1==null?l1:l2;
+        }
+        Node n = new Node(-1);
 
+        Node head = n;
 
+        while (l1 != null && l2 != null){
+            if(l1.val >= l2.val){
+                head.next =l2;
+                l2 = l2.next;
+            }{
+                head.next =l1;
+                l1 = l1.next;
+            }
+            head = head.next;
+        }
 
-        return null;
+        head.next = (l1 == null) ? l2 : l1;
+        return head.next;
     }
 }
