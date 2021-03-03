@@ -8,10 +8,10 @@ package cn.zyc.结构算法之美.link;
  */
 public class MergeLinkSorted {
 
-
+    //1->2->4, 1->3->4
     public Node mergeTwoLists(Node l1, Node l2) {
         if(l1 == null || l2 == null){
-            return l1==null?l1:l2;
+            return l1 == null ? l2 : l1;
         }
         Node n = new Node(-1);
 
@@ -21,7 +21,7 @@ public class MergeLinkSorted {
             if(l1.val >= l2.val){
                 head.next =l2;
                 l2 = l2.next;
-            }{
+            }else {
                 head.next =l1;
                 l1 = l1.next;
             }
@@ -29,6 +29,6 @@ public class MergeLinkSorted {
         }
 
         head.next = (l1 == null) ? l2 : l1;
-        return head.next;
+        return n.next;
     }
 }
