@@ -1,11 +1,11 @@
 package cn.zyc.结构算法之美.link;
 
 /**
- * dsc: 中间节点
+ * dsc: 搜寻中间节点
  * date: 2021/3/3 17:08
  * author: zyc
  */
-public class 中间节点 {
+public class LookMidleNode {
     Node init(){
         Node n = new Node(1);
         Node n1 = new Node(2);
@@ -35,7 +35,7 @@ public class 中间节点 {
     }
 
     public static void main(String[] args) {
-        中间节点 n = new 中间节点();
+        LookMidleNode n = new LookMidleNode();
         Node init = n.init();
         System.out.println(n.midsideNode(init));
     }

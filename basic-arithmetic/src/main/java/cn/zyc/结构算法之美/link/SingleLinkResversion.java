@@ -6,7 +6,7 @@ package cn.zyc.结构算法之美.link;
  * date: 2021/3/3 15:02
  * author: zyc
  */
-public class 单链表翻转 {
+public class SingleLinkResversion {
     Node init(){
         Node n = new Node(1);
         Node n1 = new Node(2);
@@ -65,7 +65,7 @@ public class 单链表翻转 {
 
 
     public static void main(String[] args) {
-        单链表翻转 link = new 单链表翻转();
+        SingleLinkResversion link = new SingleLinkResversion();
         Node init = link.init();
 
         link.pint(init);
