@@ -2,8 +2,12 @@ package cn.zyc.jvm.classload;
 
 public class DemoClinet extends Parent {
 
+    private DemoClintInneter demoClintInneter = new DemoClintInneter();
+
     public DemoClinet() {
+        demoClintInneter.sout();
     }
+
 
     public DemoClinet(int a) {
         super(a);

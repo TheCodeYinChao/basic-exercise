@@ -33,11 +33,6 @@ public class ClassLoad extends ClassLoader {
         return defineClass(name, bytes, 0, bytes.length);
     }
 
-    @Override
-    protected Class<?> findClass(String name) throws ClassNotFoundException {
-        return super.findClass(name);
-    }
-
     public static void main(String[] args) throws Exception {
         DemoClinet demoClinet = new DemoClinet();
         System.out.println(demoClinet.getClass().getClassLoader());
@@ -73,7 +68,6 @@ public class ClassLoad extends ClassLoader {
 
         ClassLoad cl = new ClassLoad();
 
-        Class<B> bClass = B.class;
 
         Class<B> b = (Class<B>) cl.loadClass("cn.zyc.jvm.classload.B");
         B b1 = b.newInstance();
