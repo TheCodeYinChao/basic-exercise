@@ -48,7 +48,7 @@
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <httpclient.version>4.5.3</httpclient.version>
         <httpcore.version>4.4.8</httpcore.version>
-        <bouncycastle.version>1.58</bouncycastle.version>
+        <bouncycastle.version>1.67</bouncycastle.version>
         <antlr.version>2.7.7</antlr.version>
         <dom4j.version>1.6.1</dom4j.version>
         <javax_mail.version>1.4.7</javax_mail.version>
